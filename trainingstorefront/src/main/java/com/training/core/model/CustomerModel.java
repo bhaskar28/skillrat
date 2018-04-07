@@ -25,8 +25,10 @@ public class CustomerModel
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CUSTOMER_FIELD", joinColumns = { @JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = { @JoinColumn(name = "FIELD_ID") })
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "CUSTOMER_FIELDS", joinColumns = {
+	        @JoinColumn(name = "CUSTOMER_ID")}, inverseJoinColumns = {
+	        @JoinColumn(name = "FIELD_ID")})
     private Set<FieldModel> fields; 
 	
 	@Column(name="FIRST_NAME")
