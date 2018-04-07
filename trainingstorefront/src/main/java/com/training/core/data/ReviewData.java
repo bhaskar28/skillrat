@@ -5,6 +5,7 @@ public class ReviewData
 	private Long id;
 	private String comment;
 	private Integer rating;
+	private Long customerId;
 	
 	public Long getId() {
 		return id;
@@ -23,6 +24,12 @@ public class ReviewData
 	}
 	public void setRating(Integer rating) {
 		this.rating = rating;
+	}
+	public Long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 	
 }

@@ -1,7 +1,5 @@
 package com.training.storefront.controllers;
 
-
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -15,20 +13,20 @@ import com.training.core.service.ExperienceService;
 
 @Controller
 @RequestMapping("/experience")
-public class ExperienceController {
-	@Resource(name="experienceService")
-	 private ExperienceService experienceService;
-    
-	 
-		@RequestMapping(value="/create", method= RequestMethod.POST)
-		@ResponseBody
-	public void createExperience(ExperienceData experienceData)
+public class ExperienceController 
+{
+	@Resource(name = "experienceService")
+	private ExperienceService experienceService;
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@ResponseBody
+	public void createExperience(ExperienceData experienceData) 
 	{
 		System.out.println(experienceData);
-		ExperienceModel  experience= new ExperienceModel ();
+		ExperienceModel experience = new ExperienceModel();
 		experience.setYears(experienceData.getYears());
-		experience.setMonths(experienceData.getMonths()) ;
-		experience.setSummary(experienceData.getSummary()) ;
+		experience.setMonths(experienceData.getMonths());
+		experience.setSummary(experienceData.getSummary());
 
 		experienceService.saveExperience(experience);
 	}
