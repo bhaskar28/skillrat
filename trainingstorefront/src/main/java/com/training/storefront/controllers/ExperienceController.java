@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.ExperienceData;
+import com.training.core.model.CustomerModel;
 import com.training.core.model.ExperienceModel;
+import com.training.core.service.CustomerService;
 import com.training.core.service.ExperienceService;
 
 @Controller
@@ -18,6 +20,8 @@ public class ExperienceController
 	@Resource(name = "experienceService")
 	private ExperienceService experienceService;
 
+	@Resource(name = "customerService")
+	private CustomerService customerService;
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public void createExperience(ExperienceData experienceData) 
@@ -27,7 +31,8 @@ public class ExperienceController
 		experience.setYears(experienceData.getYears());
 		experience.setMonths(experienceData.getMonths());
 		experience.setSummary(experienceData.getSummary());
-
+		CustomerModel customer=customerService.getCustomerById(experienceData.getCustomerId());
+		experience.setCustomer(customer);
 		experienceService.saveExperience(experience);
 	}
 

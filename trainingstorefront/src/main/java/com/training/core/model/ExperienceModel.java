@@ -60,4 +60,29 @@ public class ExperienceModel
 		this.summary = summary;
 
 	}
+
+	public List<FieldModel> getFields() {
+		return fields;
+	}
+
+	public void setFields(List<FieldModel> fields) {
+		this.fields = fields;
+	}
+
+	public CustomerModel getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerModel customer) {
+		this.customer = customer;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+	
 }
