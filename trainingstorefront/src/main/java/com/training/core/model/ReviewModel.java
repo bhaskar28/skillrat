@@ -31,6 +31,10 @@ public class ReviewModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@OneToOne
+	@JoinColumn(name="GIVEN_BY")
+	private CustomerModel givenBy;
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +58,18 @@ public class ReviewModel
 	}
 	public void setCustomer(CustomerModel customer) {
 		this.customer = customer;
+	}
+	public Date getCreationTime() {
+		return creationTime;
+	}
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+	public CustomerModel getGivenBy() {
+		return givenBy;
+	}
+	public void setGivenBy(CustomerModel givenBy) {
+		this.givenBy = givenBy;
 	}
 	
 }

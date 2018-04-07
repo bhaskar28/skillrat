@@ -6,6 +6,7 @@ public class ReviewData
 	private String comment;
 	private Integer rating;
 	private Long customerId;
+	private Long givenByCustomer;
 	
 	public Long getId() {
 		return id;
@@ -30,6 +31,12 @@ public class ReviewData
 	}
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
+	}
+	public Long getGivenByCustomer() {
+		return givenByCustomer;
+	}
+	public void setGivenByCustomer(Long givenByCustomer) {
+		this.givenByCustomer = givenByCustomer;
 	}
 	
 }
