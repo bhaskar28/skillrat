@@ -38,5 +38,8 @@ public class ReviewData
 	public void setGivenByCustomer(Long givenByCustomer) {
 		this.givenByCustomer = givenByCustomer;
 	}
-	
+	@Override
+	public String toString() {
+		return "Data [id=" + id + ", givenByCustomer=" + givenByCustomer+", customerId=" + customerId+", rating=" + rating+", comment=" + comment+       "]";
+	}
 }

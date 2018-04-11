@@ -48,5 +48,8 @@ public class ExperienceData
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-	
+	@Override
+	public String toString() {
+		return "Data [id=" + id + ", customerId=" + customerId+", months=" + months+", years=" + years+", summary=" + summary+       "]";
+	}
 }
