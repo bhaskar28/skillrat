@@ -11,14 +11,14 @@ import com.training.core.model.BusinessUnitModel;
 
 
 @Repository("businessDao")
-public class DefaultBusinessUnitDao implements BusinessUnitDao{
-
-	// sessionFactory is a database connection factory name.which is configured in xml file.
+public class DefaultBusinessUnitDao implements BusinessUnitDao
+{
 	@Resource(name="sessionFactory")
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void createBusinessUnit(BusinessUnitModel business) {
+	public void createBusinessUnit(BusinessUnitModel business) 
+	{
 		sessionFactory.getCurrentSession().saveOrUpdate( business);
 	}
 

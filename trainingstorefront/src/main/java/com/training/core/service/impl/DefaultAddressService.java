@@ -10,13 +10,23 @@ import com.training.core.model.AddressModel;
 import com.training.core.service.AddressService;
 
 @Service("addressService")
-public class DefaultAddressService implements AddressService{
+public class DefaultAddressService implements AddressService
+{
 	@Resource(name="addressDao")
 	private AddressDao addressDao;
 
 	@Override
 	@Transactional
-	public void saveAddress(AddressModel addressModel) {
+	public void saveAddress(AddressModel addressModel) 
+	{
 		addressDao.createAddress(addressModel);
-	}}
+	}
+
+	@Override
+	public AddressModel getAddressById(Long id) 
+	{
+		return addressDao.getAddressById(id);
+	}
+	
+}
 	

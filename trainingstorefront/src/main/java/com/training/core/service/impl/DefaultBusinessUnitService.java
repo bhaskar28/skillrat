@@ -10,16 +10,16 @@ import com.training.core.model.BusinessUnitModel;
 import com.training.core.service.BusinessService;
 
 @Service("businessService")
-public class DefaultBusinessUnitService implements BusinessService{
+public class DefaultBusinessUnitService implements BusinessService
+{
 	@Resource(name="businessDao")
 	private BusinessUnitDao businessUnitDao;
 
 	@Override
 	@Transactional
-	public void saveBusiness(BusinessUnitModel businessModel) {
+	public void saveBusiness(BusinessUnitModel businessModel) 
+	{
 		businessUnitDao.createBusinessUnit(businessModel);
-		
 	}
 	
-
 }

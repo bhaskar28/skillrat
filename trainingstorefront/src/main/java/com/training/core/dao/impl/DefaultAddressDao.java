@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.training.core.dao.AddressDao;
 import com.training.core.model.AddressModel;
 @Repository("addressDao")
-public class DefaultAddressDao implements AddressDao{
+public class DefaultAddressDao implements AddressDao
+{
 
-	// sessionFactory is a database connection factory name.which is configured in xml file.
 	@Resource(name="sessionFactory")
 	private SessionFactory sessionFactory;
 
@@ -18,6 +18,12 @@ public class DefaultAddressDao implements AddressDao{
 	public void createAddress(AddressModel address) 
 	{
 		sessionFactory.getCurrentSession().saveOrUpdate( address);
+	}
+
+	@Override
+	public AddressModel getAddressById(Long id) 
+	{
+		return (AddressModel) sessionFactory.getCurrentSession().get(AddressModel.class, id);
 	}
 
 }
