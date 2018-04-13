@@ -9,15 +9,22 @@ import com.training.core.model.CountryModel;
 import com.training.core.service.CountryService;
 
 @Service("countryService")
-public class DefaultCountryService  implements CountryService{
+public class DefaultCountryService  implements CountryService
+{
 	@Resource(name="countryDao")
 	private CountryDao countryDao;
 
 	@Override
 	@Transactional
-	public void saveCountry(CountryModel countryModel) {
+	public void saveCountry(CountryModel countryModel) 
+	{
 		countryDao.createCountry(countryModel);
-		
+	}
+
+	@Override
+	public CountryModel getCountry(Long id) 
+	{
+		return countryDao.getCountry(id);
 	}
 
 }

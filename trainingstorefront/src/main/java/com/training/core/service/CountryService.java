@@ -2,6 +2,8 @@ package com.training.core.service;
 
 import com.training.core.model.CountryModel;
 
-public interface CountryService {
+public interface CountryService 
+{
 	void saveCountry(CountryModel countryModel);
+	CountryModel getCountry(Long id);
 }

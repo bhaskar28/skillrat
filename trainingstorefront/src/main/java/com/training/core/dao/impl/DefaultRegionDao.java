@@ -5,21 +5,24 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import com.training.core.dao.RegionDao;
 import com.training.core.model.RegionModel;
+
+
 @Repository("regionDao")
-public class DefaultRegionDao implements RegionDao{
-	// sessionFactory is a database connection factory name.which is configured in xml file.
-		@Resource(name="sessionFactory")
-		private SessionFactory sessionFactory;
+public class DefaultRegionDao implements RegionDao 
+{
+	@Resource(name = "sessionFactory")
+	private SessionFactory sessionFactory;
 
 	@Override
-	public void createRegion(RegionModel region) {
-		sessionFactory.getCurrentSession().saveOrUpdate( region);
-		
+	public void createRegion(RegionModel region) 
+	{
+		sessionFactory.getCurrentSession().saveOrUpdate(region);
 	}
 
-	
+	@Override
+	public RegionModel getRegionById(Long id) 
+	{
+		return (RegionModel) sessionFactory.getCurrentSession().get(RegionModel.class, id);
+	}
+
 }
-
-
-	
-	

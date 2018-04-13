@@ -11,8 +11,8 @@ public class AddressData {
 	private Integer pincode;
 	private String contact;
 	private String email;
-	private RegionModel region;
-	private CountryModel country;
+	private Long regionId;
+	private Long countryId;
 	public Long getId() {
 		return id;
 	}
@@ -55,21 +55,17 @@ public class AddressData {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public RegionModel getRegion() {
-		return region;
+	public Long getRegionId() {
+		return regionId;
 	}
-	public void setRegion(RegionModel region) {
-		this.region = region;
+	public void setRegionId(Long regionId) {
+		this.regionId = regionId;
 	}
-	public CountryModel getCountry() {
-		return country;
+	public Long getCountryId() {
+		return countryId;
 	}
-	public void setCountry(CountryModel country) {
-		this.country = country;
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
 	}
-	@Override
-	public String toString() {
-		return "Data [id=" + id + ", line1=" + line1 + ", line2=" + line2 +", line3="
-				+ line3 +",country="+country+",region="+region+",email="+email+",contact="+contact+ ",pincode="+pincode+      "]";
-	}
+	
 }

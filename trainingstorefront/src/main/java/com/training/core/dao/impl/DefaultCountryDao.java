@@ -9,14 +9,21 @@ import com.training.core.dao.CountryDao;
 import com.training.core.model.CountryModel;
 
 @Repository("countryDao")
-public class DefaultCountryDao implements CountryDao{
-	// sessionFactory is a database connection factory name.which is configured in xml file.
-		@Resource(name="sessionFactory")
-		private SessionFactory sessionFactory;
+public class DefaultCountryDao implements CountryDao 
+{
+	@Resource(name = "sessionFactory")
+	private SessionFactory sessionFactory;
 
-		@Override
-		public void createCountry(CountryModel country) {
-			sessionFactory.getCurrentSession().saveOrUpdate( country);
-		}
+	@Override
+	public void createCountry(CountryModel country) 
+	{
+		sessionFactory.getCurrentSession().saveOrUpdate(country);
+	}
+
+	@Override
+	public CountryModel getCountry(Long id) 
+	{
+		return (CountryModel) sessionFactory.getCurrentSession().get(CountryModel.class, id);
+	}
 
 }
