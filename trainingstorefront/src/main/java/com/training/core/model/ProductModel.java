@@ -34,6 +34,9 @@ public class ProductModel
 	@OneToOne(targetEntity=CategoryModel.class,cascade=CascadeType.ALL)
 	private CategoryModel category;
 
+	@OneToOne(targetEntity=CategoryModel.class,cascade=CascadeType.ALL)
+	private CustomerModel owner;
+	
 	public Long getId() {
 		return id;
 	}
@@ -82,4 +85,12 @@ public class ProductModel
 		this.category = category;
 	}
 
+	public CustomerModel getOwner() {
+		return owner;
+	}
+
+	public void setOwner(CustomerModel owner) {
+		this.owner = owner;
+	}
+	
 }
