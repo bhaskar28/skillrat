@@ -22,4 +22,10 @@ public class DefaultRoleService implements RoleService
 		roleDao.addRole(userRole);
 	}
 
+	@Override
+	public UserRoleModel getRoleByCustomer(Long customerId) 
+	{
+		return roleDao.getUserRole(customerId);
+	}
+
 }

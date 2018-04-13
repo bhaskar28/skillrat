@@ -8,15 +8,18 @@ import org.springframework.stereotype.Service;
 import com.training.core.dao.EmployeeDao;
 import com.training.core.model.EmployeeModel;
 import com.training.core.service.EmployeeService;
+
 @Service("employeeService")
-public class DefauktEmployeeService implements EmployeeService{
+public class DefaultEmployeeService implements EmployeeService
+{
 	@Resource(name="employeeDao")
 	private EmployeeDao employeeDao;
 
 	@Override
 	@Transactional
-	public void saveEmployee(EmployeeModel employeeModel) {
+	public void saveEmployee(EmployeeModel employeeModel) 
+	{
 		employeeDao.createEmployee(employeeModel);
-		
 	}
+	
 }

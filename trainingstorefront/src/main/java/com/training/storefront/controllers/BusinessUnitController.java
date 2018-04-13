@@ -13,7 +13,8 @@ import com.training.core.service.BusinessService;
 
 @Controller
 @RequestMapping("/bus")
-public class BusinessUnitController {
+public class BusinessUnitController 
+{
 	
 	@Resource(name="businessService")
 	private BusinessService businessService;
@@ -29,5 +30,6 @@ public class BusinessUnitController {
 		business.setName(businessData.getName());
 		business.setId(businessData.getId());
 		businessService.saveBusiness(business);	
-		}
+	}
+	
 }
