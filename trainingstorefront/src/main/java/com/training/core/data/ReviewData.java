@@ -5,6 +5,8 @@ public class ReviewData
 	private Long id;
 	private String comment;
 	private Integer rating;
+	private Long customerId;
+	private Long givenByCustomer;
 	
 	public Long getId() {
 		return id;
@@ -24,5 +26,20 @@ public class ReviewData
 	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
-	
+	public Long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+	public Long getGivenByCustomer() {
+		return givenByCustomer;
+	}
+	public void setGivenByCustomer(Long givenByCustomer) {
+		this.givenByCustomer = givenByCustomer;
+	}
+	@Override
+	public String toString() {
+		return "Data [id=" + id + ", givenByCustomer=" + givenByCustomer+", customerId=" + customerId+", rating=" + rating+", comment=" + comment+       "]";
+	}
 }

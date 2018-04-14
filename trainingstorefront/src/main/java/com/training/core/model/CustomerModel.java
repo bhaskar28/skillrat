@@ -1,7 +1,6 @@
 package com.training.core.model;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,8 +23,10 @@ public class CustomerModel
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "CUSTOMER_FIELD", joinColumns = { @JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = { @JoinColumn(name = "FIELD_ID") })
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "CUSTOMER_FIELDS", joinColumns = {
+	        @JoinColumn(name = "CUSTOMER_ID")}, inverseJoinColumns = {
+	        @JoinColumn(name = "FIELD_ID")})
     private Set<FieldModel> fields; 
 	
 	@Column(name="FIRST_NAME")
@@ -46,6 +46,12 @@ public class CustomerModel
 	
 	@Column(name="PASSWORD")
 	private String password;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "CUSTOMER_ADDRESSES", joinColumns = {
+	        @JoinColumn(name = "CUSTOMER_ID")}, inverseJoinColumns = {
+	        @JoinColumn(name = "ADDRESS_ID")})
+    private Set<AddressModel> addresses;
 	
 	public Long getId() {
 		return id;
@@ -94,6 +100,12 @@ public class CustomerModel
 	}
 	public void setFields(Set<FieldModel> fields) {
 		this.fields = fields;
+	}
+	public Set<AddressModel> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(Set<AddressModel> addresses) {
+		this.addresses = addresses;
 	}
 	
 }

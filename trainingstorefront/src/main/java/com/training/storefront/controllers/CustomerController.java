@@ -2,22 +2,15 @@ package com.training.storefront.controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
 import javax.annotation.Resource;
-import javax.persistence.Column;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.training.core.data.CustomerData;
-import com.training.core.data.FieldData;
 import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
 import com.training.core.service.CustomerService;
@@ -57,12 +50,22 @@ public class CustomerController
 	public void addFields(Long[] fieldid, Long customerId)
 	{
 		CustomerModel customer=customerService.getCustomerById(customerId);
-		Set<FieldModel> fieldsList= new HashSet<FieldModel>();
-		for(Long filedData: fieldid)
+		
+		Set<FieldModel> fieldsList= customer.getFields();
+		
+		if(fieldsList == null)
 		{
-			FieldModel fieldModel=fieldService.getFieldById(filedData);
-			fieldsList.add(fieldModel);
+			fieldsList= new HashSet<FieldModel>();
 		}
+		else
+		{
+			for(Long filedData: fieldid)
+			{
+				FieldModel fieldModel=fieldService.getFieldById(filedData);
+				fieldsList.add(fieldModel);
+			}
+		}
+		
 		customer.setFields(fieldsList);
 		customerService.saveCustomer(customer);
 	}

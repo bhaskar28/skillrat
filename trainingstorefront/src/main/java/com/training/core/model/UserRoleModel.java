@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,9 @@ public class UserRoleModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@OneToOne
+	@JoinColumn(name = "CUSTOMER")
+	private CustomerModel customer;
 	public Long getId() {
 		return id;
 	}
@@ -37,5 +42,11 @@ public class UserRoleModel
 	}
 	public void setCreationTime(Date creationTime) {
 		this.creationTime = creationTime;
+	}
+	public CustomerModel getCustomer() {
+		return customer;
+	}
+	public void setCustomer(CustomerModel customer) {
+		this.customer = customer;
 	}
 }

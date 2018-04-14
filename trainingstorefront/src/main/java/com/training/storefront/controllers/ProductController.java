@@ -39,7 +39,7 @@ public class ProductController
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));
-		product.setCreationTime(date);//edhi kada adigav? vunnava?
+		product.setCreationTime(date);
 
 		productService.saveProduct(product);
 	}
