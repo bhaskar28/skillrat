@@ -50,12 +50,22 @@ public class CustomerController
 	public void addFields(Long[] fieldid, Long customerId)
 	{
 		CustomerModel customer=customerService.getCustomerById(customerId);
-		Set<FieldModel> fieldsList= new HashSet<FieldModel>();
-		for(Long filedData: fieldid)
+		
+		Set<FieldModel> fieldsList= customer.getFields();
+		
+		if(fieldsList == null)
 		{
-			FieldModel fieldModel=fieldService.getFieldById(filedData);
-			fieldsList.add(fieldModel);
+			fieldsList= new HashSet<FieldModel>();
 		}
+		else
+		{
+			for(Long filedData: fieldid)
+			{
+				FieldModel fieldModel=fieldService.getFieldById(filedData);
+				fieldsList.add(fieldModel);
+			}
+		}
+		
 		customer.setFields(fieldsList);
 		customerService.saveCustomer(customer);
 	}
