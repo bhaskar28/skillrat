@@ -22,6 +22,12 @@ public class DefaultBusinessUnitDao implements BusinessUnitDao
 		sessionFactory.getCurrentSession().saveOrUpdate( business);
 	}
 
+	@Override
+	public BusinessUnitModel getBusinessUnit(Long id) 
+	{
+		return (BusinessUnitModel) sessionFactory.getCurrentSession().get(BusinessUnitModel.class, id);
+	}
+
 }
 
 

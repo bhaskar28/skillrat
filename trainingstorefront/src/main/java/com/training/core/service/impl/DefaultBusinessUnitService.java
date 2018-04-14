@@ -21,5 +21,11 @@ public class DefaultBusinessUnitService implements BusinessService
 	{
 		businessUnitDao.createBusinessUnit(businessModel);
 	}
+
+	@Override
+	public BusinessUnitModel getBusinessUnit(Long id) 
+	{
+		return businessUnitDao.getBusinessUnit(id);
+	}
 	
 }

@@ -42,6 +42,9 @@ public class AddressModel
 	@JoinColumn(name = "COUNTRY")
 	private CountryModel country;
 	
+	@Column(name="IS_DEFAULT")
+	private Boolean isDefault;
+	
 	public Long getId() {
 		return id;
 	}
@@ -95,6 +98,12 @@ public class AddressModel
 	}
 	public void setCountry(CountryModel country) {
 		this.country = country;
+	}
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 	
 }

@@ -47,6 +47,12 @@ public class CustomerModel
 	@Column(name="PASSWORD")
 	private String password;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "CUSTOMER_ADDRESSES", joinColumns = {
+	        @JoinColumn(name = "CUSTOMER_ID")}, inverseJoinColumns = {
+	        @JoinColumn(name = "ADDRESS_ID")})
+    private Set<AddressModel> addresses;
+	
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +100,12 @@ public class CustomerModel
 	}
 	public void setFields(Set<FieldModel> fields) {
 		this.fields = fields;
+	}
+	public Set<AddressModel> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(Set<AddressModel> addresses) {
+		this.addresses = addresses;
 	}
 	
 }

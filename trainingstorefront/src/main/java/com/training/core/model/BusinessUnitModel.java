@@ -36,6 +36,12 @@ public class BusinessUnitModel
 	        @JoinColumn(name = "EMPLOYEE_ID")})
 	private Set<EmployeeModel> employees;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "BUSINESS_ADDRESS", joinColumns = {
+	        @JoinColumn(name = "BUSINESS_ID")}, inverseJoinColumns = {
+	        @JoinColumn(name = "ADDRESS_ID")})
+	private Set<AddressModel> addresses;
+	
 	public Long getId() {
 		return id;
 	}
@@ -74,6 +80,14 @@ public class BusinessUnitModel
 
 	public void setEmployees(Set<EmployeeModel> employees) {
 		this.employees = employees;
+	}
+
+	public Set<AddressModel> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<AddressModel> addresses) {
+		this.addresses = addresses;
 	}
 	
 }
