@@ -1,13 +1,14 @@
 package com.training.core.data;
 
-import com.training.core.model.CountryModel;
 
-public class RegionData {
+public class RegionData 
+{
 	private Long id;
 	private String isoCode;
 	private String isoWithCountryCode;
 	private String name;
-	private CountryModel country;
+	private Long countryId;
+	
 	public Long getId() {
 		return id;
 	}
@@ -32,14 +33,11 @@ public class RegionData {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public CountryModel getCountry() {
-		return country;
+	public Long getCountryId() {
+		return countryId;
 	}
-	public void setCountry(CountryModel country) {
-		this.country = country;
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
 	}
-	@Override
-	public String toString() {
-		return "Data [id=" + id + ", isoWithCountryCode=" + isoWithCountryCode + ", name=" + name +",country="+country+",isoCode="+isoCode+",email="+     "]";
-	}
+	
 }
