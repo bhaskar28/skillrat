@@ -1,9 +1,8 @@
 package com.training.core.data;
 
-import com.training.core.model.CountryModel;
-import com.training.core.model.RegionModel;
 
-public class BusinessData {
+public class BusinessData 
+{
 	private String email;
 	private String description;
 	private String name;

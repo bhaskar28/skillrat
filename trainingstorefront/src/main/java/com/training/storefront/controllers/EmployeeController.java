@@ -6,16 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.training.core.data.AddressData;
 import com.training.core.data.EMployeeData;
-import com.training.core.model.AddressModel;
 import com.training.core.model.EmployeeModel;
 import com.training.core.service.EmployeeService;
 
 @Controller
 @RequestMapping("/employe")
-public class EmployeeController {
+public class EmployeeController 
+{
 	@Resource(name="employeeService")
 	private EmployeeService employeeService;
     

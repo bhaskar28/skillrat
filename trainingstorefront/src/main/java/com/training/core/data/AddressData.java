@@ -1,7 +1,5 @@
 package com.training.core.data;
 
-import com.training.core.model.CountryModel;
-import com.training.core.model.RegionModel;
 
 public class AddressData {
 	private Long id;
