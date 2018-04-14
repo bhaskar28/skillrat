@@ -1,12 +1,17 @@
 package com.training.core.data;
 
-public class CustomerData {
+import java.util.List;
+
+public class CustomerData 
+{
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String mobile;
 	private String email;
 	private String password;
+	private List<FieldData> fields;
+	
 	public Long getId() {
 		return id;
 	}
@@ -43,11 +48,11 @@ public class CustomerData {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	@Override
-	public String toString() {
-		return "CustomerData [id=" + id + ", password=" +password+ ", firstName=" + firstName +  ", lastName=" + lastName + ", mobile=" + mobile + ", email="
-				+ email + "]";
+	public List<FieldData> getFields() {
+		return fields;
 	}
-	
+	public void setFields(List<FieldData> fields) {
+		this.fields = fields;
+	}
 	
 }
