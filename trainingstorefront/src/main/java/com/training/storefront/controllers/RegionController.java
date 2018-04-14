@@ -1,5 +1,7 @@
 package com.training.storefront.controllers;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,7 @@ public class RegionController
 	@ResponseBody
 	public void createRegion(RegionData regionData)
 	{
+		
 		CountryModel country=countryService.getCountry(regionData.getCountryId());
 		System.out.println(regionData);
 		RegionModel region= new RegionModel();
@@ -36,5 +39,12 @@ public class RegionController
 		region.setIsoWithCountryCode(regionData.getIsoWithCountryCode());;
 		region.setName(regionData.getName());
 		regionService.saveRegion(region);
+	}
+	
+	@RequestMapping(value="/country-regions", method= RequestMethod.POST)
+	public List<RegionData> getRegionsForCountry(Long countryId)
+	{
+		List<RegionModel> regions=regionService.getRegionsForCountry(countryId);
+		return null;
 	}
 }

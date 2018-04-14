@@ -1,5 +1,7 @@
 package com.training.core.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
@@ -25,6 +27,12 @@ public class DefaultRegionService implements RegionService
 	public RegionModel getRegionById(Long id) 
 	{
 		return regionDao.getRegionById(id);
+	}
+
+	@Override
+	public List<RegionModel> getRegionsForCountry(Long countryId) 
+	{
+		return regionDao.getRegionsForCountry(countryId);
 	}
 	
 	

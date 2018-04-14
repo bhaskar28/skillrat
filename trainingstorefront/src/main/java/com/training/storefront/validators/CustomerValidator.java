@@ -15,9 +15,8 @@ public class CustomerValidator
 		
 		if(cutsomer.getMobile() == null && StringUtils.isEmpty(cutsomer.getMobile()))
 		{
-			return "Not valide mobile number";
+			return "Not a valid mobile number";
 		}
-		
 		
 		return null;
 	}
