@@ -37,7 +37,7 @@ public class AddressController
 	@Resource(name="customerService")
 	private CustomerService customerService;
 	
-	@Resource(name="customerService")
+	@Resource(name="businessService")
 	private BusinessService businessService;
 	
 	@RequestMapping(value="/create", method= RequestMethod.POST)

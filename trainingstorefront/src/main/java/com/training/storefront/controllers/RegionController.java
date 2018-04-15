@@ -22,7 +22,7 @@ public class RegionController
 	@Resource(name="regionService")
 	private RegionService regionService;
     
-	@Resource(name="regionService")
+	@Resource(name="countryService")
 	private CountryService countryService;
 	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
