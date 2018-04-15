@@ -1,5 +1,6 @@
 package com.training.storefront.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.training.core.data.RegionData;
 import com.training.core.model.CountryModel;
 import com.training.core.model.RegionModel;
+import com.training.core.response.data.RegionsResponse;
 import com.training.core.service.CountryService;
 import com.training.core.service.RegionService;
 
@@ -42,9 +44,23 @@ public class RegionController
 	}
 	
 	@RequestMapping(value="/country-regions", method= RequestMethod.POST)
-	public List<RegionData> getRegionsForCountry(Long countryId)
+	public RegionsResponse getRegionsForCountry(Long countryId)
 	{
 		List<RegionModel> regions=regionService.getRegionsForCountry(countryId);
-		return null;
+		RegionsResponse regionResponse=new RegionsResponse();
+		regionResponse.setResonseCode(200);
+		regionResponse.setMessage("");   
+		List<RegionData> regionsData= new ArrayList<RegionData>();
+		for(RegionModel region: regions)
+		{
+			RegionData regionData= new RegionData();
+			regionData.setId(region.getId());
+			regionData.setIsoCode(region.getIsoCode());
+			regionData.setIsoWithCountryCode(region.getIsoWithCountryCode());
+			regionData.setName(region.getName());
+			regionsData.add(regionData);
+		}
+		regionResponse.setRegions(regionsData);
+		return regionResponse;
 	}
 }
