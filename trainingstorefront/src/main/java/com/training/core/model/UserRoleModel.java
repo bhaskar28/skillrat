@@ -25,6 +25,7 @@ public class UserRoleModel
 	@OneToOne
 	@JoinColumn(name = "CUSTOMER")
 	private CustomerModel customer;
+	
 	public Long getId() {
 		return id;
 	}

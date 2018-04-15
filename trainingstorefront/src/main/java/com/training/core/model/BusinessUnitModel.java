@@ -1,5 +1,6 @@
 package com.training.core.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,12 @@ public class BusinessUnitModel
 
 	@Column(name="EMAIl")
 	private String email;
+	
+	@Column(name="ACTIVE")
+	private Boolean active;
+	
+	@Column(name="CREATION_TIME")
+	private Date creationTime;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "BUSINESS_EMPLOYEE", joinColumns = {

@@ -1,5 +1,6 @@
 package com.training.core.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,6 +36,9 @@ public class ExperienceModel
 	@JoinColumn(name = "CUSTOMER")
 	private CustomerModel customer;
 
+	@Column(name="CREATION_TIME")
+	private Date creationTime;
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

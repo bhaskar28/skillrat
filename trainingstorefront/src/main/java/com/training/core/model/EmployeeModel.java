@@ -1,6 +1,8 @@
 package com.training.core.model;
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +29,8 @@ public class EmployeeModel
 	@Column(name="PASSWORD")
 	private String password;
 
+	@Column(name="CREATION_TIME")
+	private Date creationTime;
 	
 	public Long getId() {
 		return id;

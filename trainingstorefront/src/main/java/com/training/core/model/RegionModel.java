@@ -1,5 +1,7 @@
 package com.training.core.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,9 @@ public class RegionModel
 	@OneToOne
 	@JoinColumn(name = "COUNTRY")
 	private CountryModel country;
+	
+	@Column(name="CREATION_TIME")
+	private Date creationTime;
 	
 	public Long getId() {
 		return id;
