@@ -21,7 +21,7 @@ public class CityModel
 	@Column(name="ISO_CODE")
 	private String cityIsoCode;
 	
-	@Column(name="ISO_CODE")
+	@Column(name="NAME")
 	private String name;
 
 	@OneToOne
