@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.training.core.dao.CityDao;
 import com.training.core.model.CityModel;
 
-@Repository
+@Repository("cityDao")
 public class DefaultCityDao implements CityDao
 {
 	@Resource(name="sessionFactory")
