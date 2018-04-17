@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +21,8 @@ public class CourseModel
 	@Column(name="TITLE")
 	private String title;
 	
-	@Column(name="FIELD")
+	@OneToOne
+	@JoinColumn(name = "FIELD")
 	private FieldModel field;
 	
 	@Column(name="CONTENT")
