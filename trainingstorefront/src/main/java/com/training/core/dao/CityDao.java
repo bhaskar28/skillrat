@@ -7,6 +7,5 @@ import com.training.core.model.CityModel;
 public interface CityDao 
 {
 	void saveOrupdate(CityModel city);
-	List<CityModel> getCitiesForCountryId(Long id);
-	List<CityModel> getAllCitiesForCountryId(Long id);
+	List<CityModel> getAllCitiesForRegion(Long regionCode);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -22,16 +23,14 @@ public class DefaultCityDao implements CityDao
 		sessionFactory.getCurrentSession().saveOrUpdate(city);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<CityModel> getCitiesForCountryId(Long id) 
+	public List<CityModel> getAllCitiesForRegion(Long regionCode) 
 	{
-		return null;
-	}
-
-	@Override
-	public List<CityModel> getAllCitiesForCountryId(Long id) 
-	{
-		return null;
+		Query query=sessionFactory.getCurrentSession().createQuery("FROM "+com.training.core.model.CityModel.class.getName()+" "
+				+ " where region.id= :id");
+		query.setParameter("id", regionCode);
+		return query.list();
 	}
 
 }
