@@ -6,4 +6,5 @@ public interface CustomerDao
 {
 	void saveUser(CustomerModel customerModel);
 	CustomerModel getCustomerById(Long id);
+	CustomerModel getCustomerByUserName(String username);
 }

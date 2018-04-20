@@ -32,4 +32,11 @@ public class DefaultCustomerService implements CustomerService
 		return customerDao.getCustomerById(id);
 	}
 
+
+	@Override
+	public CustomerModel getCustomerByUserName(String username) 
+	{
+		return customerDao.getCustomerByUserName(username);
+	}
+
 }

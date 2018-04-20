@@ -5,4 +5,5 @@ public interface CustomerService
 {
 	void saveCustomer(CustomerModel customerModel);
 	CustomerModel getCustomerById(Long id);
+	CustomerModel getCustomerByUserName(String username);
 }
