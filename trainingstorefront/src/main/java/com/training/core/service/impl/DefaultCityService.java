@@ -14,7 +14,7 @@ import com.training.core.service.CityService;
 @Service("cityService")
 public class DefaultCityService implements CityService
 {
-	@Resource(name="cityService")
+	@Resource(name="cityDao")
 	private CityDao cityDao;
 	
 	@Override

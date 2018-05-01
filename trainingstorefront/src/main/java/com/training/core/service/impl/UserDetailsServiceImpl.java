@@ -5,21 +5,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.training.core.data.UserData;
-import com.training.core.model.CustomerModel;
-import com.training.core.model.UserRoleModel;
-import com.training.core.service.CustomerService;
-import com.training.core.service.RoleService;
-
-public class UserDetailsServiceImpl implements UserDetailsService
+public class UserDetailsServiceImpl /*implements UserDetailsService*/
 {
-	@Resource(name="customerService")
+	/*@Resource(name="customerService")
 	private CustomerService customerService;
 	
 	@Resource(name="customerService")
@@ -57,5 +46,5 @@ public class UserDetailsServiceImpl implements UserDetailsService
 
         return grantedAuthorities;
     }
-
+*/
 }
