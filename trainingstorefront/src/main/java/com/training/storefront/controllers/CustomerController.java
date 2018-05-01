@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.training.core.data.CustomerData;
 import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
+import com.training.core.response.data.CustomerResponseData;
 import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
+import com.training.storefront.validators.CustomerValidator;
 
 @Controller
 @RequestMapping("/customer")
@@ -30,7 +32,14 @@ public class CustomerController
 	@ResponseBody
 	public void createCustomer(CustomerData customerData)
 	{
-		System.out.println(customerData);
+		CustomerResponseData customerResponse= new CustomerResponseData();
+		
+		if(CustomerValidator.validate(customerData) != null)
+		{
+			customerResponse.setMessage(CustomerValidator.validate(customerData));
+			customerResponse.setResonseCode(300);
+		}
+		
 		CustomerModel  customer= new CustomerModel ();
 		customer.setFirstName(customerData.getFirstName());
 		customer.setLastName(customerData.getLastName()) ;

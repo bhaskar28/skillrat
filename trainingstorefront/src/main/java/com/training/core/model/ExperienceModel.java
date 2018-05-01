@@ -39,6 +39,10 @@ public class ExperienceModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@Column(name = "DESCRIPTION")
+	private String description;
+	
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -60,7 +64,7 @@ public class ExperienceModel
 
 	}
 
-	public void setSummary(String summary2) {
+	public void setSummary(String summary) {
 		this.summary = summary;
 
 	}
@@ -87,6 +91,22 @@ public class ExperienceModel
 
 	public String getSummary() {
 		return summary;
+	}
+
+	public Date getCreationTime() {
+		return creationTime;
+	}
+
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

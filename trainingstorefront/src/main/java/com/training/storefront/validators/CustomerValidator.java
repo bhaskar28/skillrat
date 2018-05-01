@@ -10,12 +10,27 @@ public class CustomerValidator
 	{
 		if(cutsomer == null)
 		{
-			return "customer must be null";
+			return "customer must not be null";
 		}
 		
-		if(cutsomer.getMobile() == null && StringUtils.isEmpty(cutsomer.getMobile()))
+		if(StringUtils.isEmpty(cutsomer.getMobile()))
 		{
 			return "Not a valid mobile number";
+		}
+		
+		if(StringUtils.isEmpty(cutsomer.getEmail()))
+		{
+			return "Please enter valid email";
+		}
+		
+		if(StringUtils.isEmpty(cutsomer.getFirstName()))
+		{
+			return "First name should not be null";
+		}
+		
+		if(StringUtils.isEmpty(cutsomer.getLastName()))
+		{
+			return "Last name should not be null";
 		}
 		
 		return null;
