@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -77,5 +78,20 @@ public class CustomerController
 		
 		customer.setFields(fieldsList);
 		customerService.saveCustomer(customer);
+	}
+	
+	@RequestMapping(value="{id}", produces="application/json")
+	@ResponseBody
+	public CustomerData getCustomerById(@PathVariable("id") Long id)
+	{
+		CustomerModel customer=customerService.getCustomerById(id);
+		CustomerData customerData= new CustomerData();
+		customerData.setEmail(customer.getEmail());
+		customerData.setFirstName(customer.getFirstName());
+		customerData.setLastName(customer.getLastName());
+		customerData.setMobile(customer.getMobile());
+		customerData.setPassword(customer.getPassword());
+		customerData.setId(customer.getId());
+		return customerData;
 	}
 }

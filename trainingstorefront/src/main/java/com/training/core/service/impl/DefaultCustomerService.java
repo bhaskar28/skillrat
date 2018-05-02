@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import javax.transaction.Transactional;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.training.core.customer.dao.CustomerDao;
@@ -27,6 +28,7 @@ public class DefaultCustomerService implements CustomerService
 
 	@Override
 	@Transactional
+	@Cacheable(value="customersCache", key="#id")
 	public CustomerModel getCustomerById(Long id) 
 	{
 		return customerDao.getCustomerById(id);
