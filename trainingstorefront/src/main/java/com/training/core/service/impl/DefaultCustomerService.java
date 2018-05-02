@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import javax.transaction.Transactional;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class DefaultCustomerService implements CustomerService
 
 	@Override
 	@Transactional
+	@CacheEvict(value="customersCache", key="#id")
 	public void saveCustomer(CustomerModel customerModel) 
 	{
 		customerDao.saveUser( customerModel);
