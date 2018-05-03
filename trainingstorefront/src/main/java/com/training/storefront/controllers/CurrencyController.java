@@ -46,4 +46,16 @@ public class CurrencyController
 		}
 		return currencyList;
 	}
+	
+	@RequestMapping(value="/iso", produces="application/json")
+	@ResponseBody
+	public CurrencyData getCurrencyByIsoCode(String isoCode)
+	{
+		CurrencyModel currency=currencyService.getCurrencyByISOCode(isoCode);
+		CurrencyData currencyData= new CurrencyData();
+		currencyData.setId(currency.getId());
+		currencyData.setIsoCode(currency.getIsoCode());
+		currencyData.setName(currency.getName());
+		return currencyData;
+	}
 }
