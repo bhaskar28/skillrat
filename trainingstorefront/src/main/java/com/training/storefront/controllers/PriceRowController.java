@@ -4,6 +4,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.PriceRowData;
 import com.training.core.model.PriceRowModel;
@@ -20,6 +22,8 @@ public class PriceRowController
 	@Resource(name="currencyService")
 	private CurrencyService currencyService;
 	
+	@RequestMapping(value="/create", method= RequestMethod.POST)
+	@ResponseBody
 	public void createPrice(PriceRowData priceRow)
 	{
 		PriceRowModel priceRowModel= new PriceRowModel();
