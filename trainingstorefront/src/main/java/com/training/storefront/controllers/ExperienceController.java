@@ -3,6 +3,7 @@ package com.training.storefront.controllers;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,7 @@ public class ExperienceController
 
 	@Resource(name = "customerService")
 	private CustomerService customerService;
+	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public void createExperience(ExperienceData experienceData) 
@@ -35,5 +37,17 @@ public class ExperienceController
 		experience.setCustomer(customer);
 		experienceService.saveExperience(experience);
 	}
-
+	
+	@RequestMapping(value="/{customerId}", produces="application/json")
+	@ResponseBody
+	public ExperienceData getExperienceForCustomer(@PathVariable("customerId")Long customerId)
+	{
+		ExperienceModel experience=experienceService.getExperienceForCustomer(customerId);
+		ExperienceData experienceData= new ExperienceData();
+		experienceData.setId(experience.getId());
+		experienceData.setYears(experience.getYears());
+		experienceData.setMonths(experience.getMonths());
+		experienceData.setSummary(experienceData.getSummary());
+		return experienceData;
+	}
 }
