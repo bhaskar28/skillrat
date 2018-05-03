@@ -87,5 +87,13 @@ public class ProductModel
 	public void setOwner(CustomerModel owner) {
 		this.owner = owner;
 	}
+
+	public PriceRowModel getPrice() {
+		return price;
+	}
+
+	public void setPrice(PriceRowModel price) {
+		this.price = price;
+	}
 	
 }

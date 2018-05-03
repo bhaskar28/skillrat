@@ -18,17 +18,17 @@ public class PriceRowModel
 	@GeneratedValue
 	private Long id;
 	
-	@Column(name="DESCRIPTION")
+	@Column(name="FIXED_PRICE")
 	private BigDecimal fixedPrice;
 	
-	@Column(name="DESCRIPTION")
+	@Column(name="MINIMUM_PRICE")
 	private BigDecimal minimumPrice;
 	
-	@Column(name="DESCRIPTION")
+	@Column(name="MAXIMUM_PRICE")
 	private BigDecimal maximumPrice;
 
 	@OneToOne
-	@JoinColumn(name = "PRODUCT")
+	@JoinColumn(name = "CURRENCY")
 	private CurrencyModel currency;
 	
 	public Long getId() {
