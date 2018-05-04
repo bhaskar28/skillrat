@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
 	@Resource(name="customerService")
 	private CustomerService customerService;
 	
-	@Resource(name="customerService")
+	@Resource(name="roleService")
 	private RoleService roleService;
 	
 	@Override
