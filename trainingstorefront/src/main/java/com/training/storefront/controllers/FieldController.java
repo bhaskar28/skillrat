@@ -21,7 +21,6 @@ public class FieldController
 	@ResponseBody
 	public void createProduct(FieldData fieldData) 
 	{
-		System.out.println(fieldData);
 		FieldModel field = new FieldModel();
 		field.setName(fieldData.getName());
 		fieldService.saveField(field);

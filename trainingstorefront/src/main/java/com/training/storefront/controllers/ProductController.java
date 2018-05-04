@@ -1,8 +1,5 @@
 package com.training.storefront.controllers;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.annotation.Resource;
 
@@ -14,11 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
+import com.training.core.model.FieldModel;
 import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
 import com.training.core.service.CurrencyService;
+import com.training.core.service.FieldService;
 import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
+import com.training.core.util.TrainingDateUtil;
 
 @Controller
 @RequestMapping("/p")
@@ -35,10 +35,14 @@ public class ProductController
 	@Resource(name="priceRowService")
 	private PriceRowService priceRowService;
 	
+	@Resource(name="fieldService")
+	private FieldService fieldService;
+	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
-	public void createProduct(ProductData productData, PriceRowData priceRowData)
+	public void createProduct(ProductData productData, PriceRowData priceRowData, Long fieldId)
 	{
+		FieldModel field=fieldService.getFieldById(fieldId);
 		PriceRowModel priceRow= new PriceRowModel();
 		priceRow.setCurrency(currencyService.getCurrencyByISOCode(priceRowData.getCurrencyCode()));
 		priceRow.setFixedPrice(priceRowData.getFixedPrice());
@@ -51,11 +55,9 @@ public class ProductController
 		ProductModel product= new ProductModel();
 		product.setName(productData.getName());
 		product.setDescription(productData.getDescription());
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		System.out.println(dateFormat.format(date));
-		product.setCreationTime(date);
+		product.setCreationTime(TrainingDateUtil.getCreationTime());
 		product.setPrice(priceRow);
+		product.setField(field);
 		productService.saveProduct(product);
 	}
 }
