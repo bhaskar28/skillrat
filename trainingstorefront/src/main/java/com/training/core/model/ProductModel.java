@@ -40,6 +40,10 @@ public class ProductModel
 	@JoinColumn(name = "PRICE")
 	private PriceRowModel price;
 	
+	@OneToOne
+	@JoinColumn(name = "FIELD")
+	private FieldModel field;
+	
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +98,14 @@ public class ProductModel
 
 	public void setPrice(PriceRowModel price) {
 		this.price = price;
+	}
+
+	public FieldModel getField() {
+		return field;
+	}
+
+	public void setField(FieldModel field) {
+		this.field = field;
 	}
 	
 }

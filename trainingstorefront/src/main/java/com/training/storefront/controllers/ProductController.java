@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
 import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
 import com.training.core.service.CurrencyService;
+import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
 
 @Controller
@@ -30,15 +32,20 @@ public class ProductController
 	@Resource(name="currencyService")
 	private CurrencyService currencyService;
 	
+	@Resource(name="priceRowService")
+	private PriceRowService priceRowService;
+	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
-	public void createProduct(ProductData productData)
+	public void createProduct(ProductData productData, PriceRowData priceRowData)
 	{
 		PriceRowModel priceRow= new PriceRowModel();
-		priceRow.setCurrency(currencyService.getCurrencyByISOCode(productData.getPriceRow().getCurrencyCode()));
-		priceRow.setFixedPrice(productData.getPriceRow().getFixedPrice());
-		priceRow.setMaximumPrice(productData.getPriceRow().getMaximum());
-		priceRow.setMinimumPrice(productData.getPriceRow().getMinimum());
+		priceRow.setCurrency(currencyService.getCurrencyByISOCode(priceRowData.getCurrencyCode()));
+		priceRow.setFixedPrice(priceRowData.getFixedPrice());
+		priceRow.setMaximumPrice(priceRowData.getMaximum());
+		priceRow.setMinimumPrice(priceRowData.getMinimum());
+		
+		priceRowService.createPrice(priceRow);
 		
 		System.out.println(productData);
 		ProductModel product= new ProductModel();

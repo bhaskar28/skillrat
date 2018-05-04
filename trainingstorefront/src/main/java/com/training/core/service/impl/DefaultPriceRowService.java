@@ -2,6 +2,8 @@ package com.training.core.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,7 @@ import com.training.core.service.PriceRowService;
 @Service("priceRowService")
 public class DefaultPriceRowService implements PriceRowService
 {
+	@Resource(name="priceRowDao")
 	private PriceRowDao priceRowDao;
 	
 	@Override
