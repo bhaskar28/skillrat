@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.training.core.data.UserData;
 import com.training.core.model.CustomerModel;
@@ -30,6 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
 	private RoleService roleService;
 	
 	@Override
+	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException 
 	{
 		CustomerModel customer= customerService.getCustomerByUserName(username);
@@ -48,7 +50,6 @@ public class UserDetailsServiceImpl implements UserDetailsService
         boolean roleUserFound = false;
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        grantedAuthorities.add(new SimpleGrantedAuthority(userRoleModel.getRole()));
         if (userRoleModel.getRole().equals("ROLE_USER")) 
         {
             roleUserFound = true;

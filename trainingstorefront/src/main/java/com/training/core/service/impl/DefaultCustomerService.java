@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.stereotype.Service;
 
 import com.training.core.customer.dao.CustomerDao;
@@ -41,6 +42,13 @@ public class DefaultCustomerService implements CustomerService
 	public CustomerModel getCustomerByUserName(String username) 
 	{
 		return customerDao.getCustomerByUserName(username);
+	}
+
+
+	@Override
+	public ClientDetails getByClientId(String clientId) 
+	{
+		return customerDao.getByClientId(clientId);
 	}
 
 }
