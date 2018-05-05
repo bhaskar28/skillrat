@@ -3,11 +3,11 @@ package com.training.core.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,17 +25,24 @@ public class ProductModel
 	@Column(name="DESCRIPTION")
 	private String description;
 	
-	@Column(name="PRICE")
-	private Double price;
-	
 	@Column(name="CREATION_TIME")
 	private  Date creationTime;
 	
-	@OneToOne(targetEntity=CategoryModel.class,cascade=CascadeType.ALL)
+	@OneToOne
+	@JoinColumn(name = "CATEGORY")
 	private CategoryModel category;
 
-	@OneToOne(targetEntity=CategoryModel.class,cascade=CascadeType.ALL)
+	@OneToOne
+	@JoinColumn(name = "OWNER")
 	private CustomerModel owner;
+	
+	@OneToOne
+	@JoinColumn(name = "PRICE")
+	private PriceRowModel price;
+	
+	@OneToOne
+	@JoinColumn(name = "FIELD")
+	private FieldModel field;
 	
 	public Long getId() {
 		return id;
@@ -61,14 +68,6 @@ public class ProductModel
 		this.description = description;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 	public Date getCreationTime() {
 		return creationTime;
 	}
@@ -91,6 +90,22 @@ public class ProductModel
 
 	public void setOwner(CustomerModel owner) {
 		this.owner = owner;
+	}
+
+	public PriceRowModel getPrice() {
+		return price;
+	}
+
+	public void setPrice(PriceRowModel price) {
+		this.price = price;
+	}
+
+	public FieldModel getField() {
+		return field;
+	}
+
+	public void setField(FieldModel field) {
+		this.field = field;
 	}
 	
 }

@@ -1,46 +1,63 @@
 package com.training.storefront.controllers;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
+import com.training.core.model.FieldModel;
+import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
+import com.training.core.service.CurrencyService;
+import com.training.core.service.FieldService;
+import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
+import com.training.core.util.TrainingDateUtil;
 
 @Controller
 @RequestMapping("/p")
 public class ProductController 
 {
-	// this productService is given on ProductService implementation class. This should same as we given at
-	// DefaultProductService class. If we change that name. We should change here also
+	private static final Logger LOG= Logger.getLogger(ProductController.class);
+	
 	@Resource(name="productService")
 	private ProductService productService;
 	
-	//we cant access post method on browser-see here post is to post the value and diplay the values in url rite 
-	//that is possible through tomcat so how u can say that cant access post?
-	// post methods can only access through forms or web service tools. get methods can access from url
+	@Resource(name="currencyService")
+	private CurrencyService currencyService;
+	
+	@Resource(name="priceRowService")
+	private PriceRowService priceRowService;
+	
+	@Resource(name="fieldService")
+	private FieldService fieldService;
+	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
-	public void createProduct(ProductData productData)//product data lo data ela chudali..textm  mental dhana agthuava chepthunnanu love u thank u
+	public void createProduct(ProductData productData, PriceRowData priceRowData, Long fieldId)
 	{
+		FieldModel field=fieldService.getFieldById(fieldId);
+		PriceRowModel priceRow= new PriceRowModel();
+		priceRow.setCurrency(currencyService.getCurrencyByISOCode(priceRowData.getCurrencyCode()));
+		priceRow.setFixedPrice(priceRowData.getFixedPrice());
+		priceRow.setMaximumPrice(priceRowData.getMaximum());
+		priceRow.setMinimumPrice(priceRowData.getMinimum());
+		
+		priceRowService.createPrice(priceRow);
+		
 		System.out.println(productData);
 		ProductModel product= new ProductModel();
 		product.setName(productData.getName());
-		product.setPrice(productData.getPrice());
 		product.setDescription(productData.getDescription());
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		System.out.println(dateFormat.format(date));
-		product.setCreationTime(date);
-
+		product.setCreationTime(TrainingDateUtil.getCreationTime());
+		product.setPrice(priceRow);
+		product.setField(field);
 		productService.saveProduct(product);
 	}
 }
