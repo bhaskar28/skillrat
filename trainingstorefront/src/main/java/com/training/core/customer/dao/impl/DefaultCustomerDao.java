@@ -64,7 +64,6 @@ public class DefaultCustomerDao implements CustomerDao
 		CustomerModel customer=(CustomerModel) query.list().get(0);
 		UserRoleModel userRole=roleDao.getUserRole(customer.getId());
 		
-		
 		BaseClientDetails details = new BaseClientDetails(customer.getMobile(), "rest_api", "trust,read,write", "password,authorization_code,refresh_token,implicit", userRole == null || userRole.getRole()==null? "ROLE_USER" : userRole.getRole(), "");
         details.setClientSecret(customer.getPassword());
         details.setAccessTokenValiditySeconds(5);
