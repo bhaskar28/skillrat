@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Resource;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +33,7 @@ public class CustomerController
 	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
-	public void createCustomer(CustomerData customerData)
+	public ResponseEntity<?> createCustomer(CustomerData customerData)
 	{
 		CustomerResponseData customerResponse= new CustomerResponseData();
 		
@@ -53,6 +55,7 @@ public class CustomerController
 		customer.setCreationTime(date);
 
 		customerService.saveCustomer(customer);
+		return ResponseEntity.ok(customerResponse);
 	}
 	
 	@RequestMapping(value="/add-fields", method= RequestMethod.POST)

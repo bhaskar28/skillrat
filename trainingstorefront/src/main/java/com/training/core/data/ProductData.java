@@ -1,10 +1,20 @@
 package com.training.core.data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class ProductData 
 {
 	private Long id;
+	
+	@NotNull(message="Name can't be empty")
+	@NotBlank(message="Description can't be empty")
 	private String name;
+	
+	@NotNull(message="Description can't be empty")
+	@NotBlank(message="Description can't be empty")
 	private String description;
+	
 	private PriceRowData priceRow;
 	
 	public Long getId() {

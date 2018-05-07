@@ -2,6 +2,7 @@ package com.training.core.data;
 
 import java.math.BigDecimal;
 
+
 public class PriceRowData 
 {
 	private Long id;

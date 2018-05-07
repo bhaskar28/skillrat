@@ -31,6 +31,9 @@ public class CourseModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@Column(name="START_DATE")
+	private Date startDate;
+	
 	public Long getId() {
 		return id;
 	}

@@ -1,28 +1,30 @@
 package com.training.core.model;
 
-import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name="CUSTOMER")
-public class CustomerModel 
+@AttributeOverrides({
+    @AttributeOverride(name="creationTime", column=@Column(name="CREATION_TIME")),
+    @AttributeOverride(name="modifiedTime", column=@Column(name="MODIFIED_TIME")),
+    @AttributeOverride(name="createBy", column=@Column(name="CREATED_BY")),
+    @AttributeOverride(name="modifiedBy", column=@Column(name="MODIFIED_BY"))
+})
+public class CustomerModel extends UserModel
 {
-	@Id
-	@GeneratedValue
-	private Long id;
-	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "CUSTOMER_FIELDS", joinColumns = {
 	        @JoinColumn(name = "CUSTOMER_ID")}, inverseJoinColumns = {
@@ -41,9 +43,6 @@ public class CustomerModel
 	@Column(name="EMAIL")
 	private String email;
 	
-	@Column(name="CREATION_TIME")
-	private Date creationTime;
-	
 	@Column(name="PASSWORD")
 	private String password;
 	
@@ -53,12 +52,6 @@ public class CustomerModel
 	        @JoinColumn(name = "ADDRESS_ID")})
     private Set<AddressModel> addresses;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -82,12 +75,6 @@ public class CustomerModel
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public Date getCreationTime() {
-		return creationTime;
-	}
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
 	}
 	public String getPassword() {
 		return password;
