@@ -36,7 +36,14 @@ public class CategoryController
 			System.out.println(dateFormat.format(date));
 			category.setCreationTime(date);
 
-			categoryService.saveProduct(category);
+			categoryService.saveCategory(category);
+		}
+		
+		@RequestMapping(value="/list", method= RequestMethod.POST)
+		@ResponseBody
+		public void getCategories()
+		{
+			categoryService.getCategories();
 		}
 	}
 

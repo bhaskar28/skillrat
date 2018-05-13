@@ -5,4 +5,6 @@ import com.training.core.model.ProductModel;
 public interface ProductService 
 {
 	void saveProduct(ProductModel productModel);
+	ProductModel getProductById(Long productId);
+	
 }

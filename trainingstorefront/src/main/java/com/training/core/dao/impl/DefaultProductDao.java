@@ -33,4 +33,11 @@ public class DefaultProductDao implements ProductDao
 		sessionFactory.getCurrentSession().saveOrUpdate(productModel);
 	}
 
+
+	@Override
+	public ProductModel getProductById(Long id) 
+	{
+		return (ProductModel) sessionFactory.getCurrentSession().get(ProductModel.class, id);
+	}
+
 }

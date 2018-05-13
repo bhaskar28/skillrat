@@ -1,5 +1,7 @@
 package com.training.core.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
@@ -32,6 +34,12 @@ public class DefaultFieldService implements FieldService
 	public FieldModel getFieldById(Long id) 
 	{
 		return fieldDao.getFieldById(id);
+	}
+
+	@Override
+	public List<FieldModel> getFieldsByCategory(Long categoryId) 
+	{
+		return fieldDao.getFieldsByCategory(categoryId);
 	}
 	
 }

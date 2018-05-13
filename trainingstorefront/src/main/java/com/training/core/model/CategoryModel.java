@@ -27,6 +27,9 @@ public class CategoryModel
 	
 	@Column(name="HAS_SUB_CATEGORIES")
 	private Boolean hasSubCategories;
+	
+	@Column(name="HAS_SUPER_CATEGORIES")
+	private Boolean hasSuperCategories;
 
 	public Long getId() {
 		return id;
@@ -67,6 +70,13 @@ public class CategoryModel
 	public void setHasSubCategories(Boolean hasSubCategories) {
 		this.hasSubCategories = hasSubCategories;
 	}
-	
+
+	public Boolean getHasSuperCategories() {
+		return hasSuperCategories;
+	}
+
+	public void setHasSuperCategories(Boolean hasSuperCategories) {
+		this.hasSuperCategories = hasSuperCategories;
+	}
 	
 }
