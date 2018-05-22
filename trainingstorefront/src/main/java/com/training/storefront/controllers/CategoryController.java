@@ -19,32 +19,30 @@ import com.training.core.service.CategoryService;
 public class CategoryController 
 {
 
-        @Resource(name="categoryService")
-		private CategoryService categoryService;
+   @Resource(name="categoryService")
+   private CategoryService categoryService;
         
-		@RequestMapping(value="/create", method= RequestMethod.POST)
-		@ResponseBody
-		public void createProduct(CategoryData categoryData)
-		{
-			System.out.println(categoryData);
-			CategoryModel category= new CategoryModel();
-			category.setName(categoryData.getName());
-			category.setHasSubCategories(categoryData.getHasSubCategories());
-			category.setDescription(categoryData.getDescription());
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			Date date = new Date();
-			System.out.println(dateFormat.format(date));
-			category.setCreationTime(date);
+   @RequestMapping(value="/create", method= RequestMethod.POST)
+   @ResponseBody
+   public void createProduct(CategoryData categoryData)
+   {
+	   System.out.println(categoryData);
+	   CategoryModel category= new CategoryModel();
+	   category.setName(categoryData.getName());
+	   category.setHasSubCategories(categoryData.getHasSubCategories());
+	   category.setDescription(categoryData.getDescription());
+	   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	   Date date = new Date();
+	   System.out.println(dateFormat.format(date));
+	   category.setCreationTime(date);
 
-			categoryService.saveCategory(category);
-		}
-		
-		@RequestMapping(value="/list", method= RequestMethod.POST)
-		@ResponseBody
-		public void getCategories()
-		{
-			categoryService.getCategories();
-		}
+	   categoryService.saveCategory(category);
 	}
-
-
+		
+	@RequestMapping(value="/list", method= RequestMethod.POST)
+	@ResponseBody
+	public void getCategories()
+	{
+		categoryService.getCategories();
+	}
+}

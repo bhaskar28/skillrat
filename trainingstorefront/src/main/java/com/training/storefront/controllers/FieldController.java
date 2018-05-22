@@ -38,7 +38,8 @@ public class FieldController
 		List<FieldModel> fields=fieldService.getFieldsByCategory(categoryId);
 		
 		List<FieldData> fieldList= new ArrayList<FieldData>();
-		fields.forEach(field->{
+		fields.forEach(field->
+		{
 			FieldData fieldData= new FieldData();
 			fieldData.setId(fieldData.getId());
 			fieldData.setName(field.getName());

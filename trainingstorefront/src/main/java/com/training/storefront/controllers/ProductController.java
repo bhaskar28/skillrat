@@ -4,8 +4,6 @@ package com.training.storefront.controllers;
 import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
-import javax.validation.constraints.NotBlank;
-
 import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -46,7 +44,7 @@ public class ProductController
 	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> createProduct(ProductData productData, PriceRowData priceRowData,Long fieldId, Errors errors)
+	public ResponseEntity<ProductResponseData> createProduct(ProductData productData, PriceRowData priceRowData,Long fieldId, Errors errors)
 	{
 		ProductResponseData productResponse= new ProductResponseData();
 		if(errors.hasErrors() )

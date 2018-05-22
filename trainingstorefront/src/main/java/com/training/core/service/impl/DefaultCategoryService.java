@@ -23,7 +23,6 @@ public class DefaultCategoryService implements CategoryService
 	public void saveCategory(CategoryModel categoryModel) 
 	{
 		categoryDao.createCategory(categoryModel);
-		
 	}
 
 
@@ -31,6 +30,13 @@ public class DefaultCategoryService implements CategoryService
 	public List<CategoryModel> getCategories() 
 	{
 		return categoryDao.getCategories();
+	}
+
+
+	@Override
+	public List<CategoryModel> getTopLevelCategories() 
+	{
+		return null;
 	}
 
 }

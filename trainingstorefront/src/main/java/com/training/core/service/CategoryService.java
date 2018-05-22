@@ -7,4 +7,5 @@ public interface CategoryService
 {
 	void saveCategory(CategoryModel categoryModel);
 	List<CategoryModel> getCategories();
+	List<CategoryModel> getTopLevelCategories();
 }
