@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
+import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
 import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
 import com.training.core.service.CurrencyService;
+import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
 import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
@@ -38,6 +40,9 @@ public class ProductController
 	@Resource(name="fieldService")
 	private FieldService fieldService;
 	
+	@Resource(name="customerService")
+	private CustomerService customerService;
+	
 	@RequestMapping(value="/create", method= RequestMethod.POST)
 	@ResponseBody
 	public void createProduct(ProductData productData, PriceRowData priceRowData, Long fieldId)
@@ -51,6 +56,7 @@ public class ProductController
 		
 		priceRowService.createPrice(priceRow);
 		
+		CustomerModel customerModel=customerService.getCustomerById(productData.getCustomerId());
 		System.out.println(productData);
 		ProductModel product= new ProductModel();
 		product.setName(productData.getName());
@@ -58,6 +64,7 @@ public class ProductController
 		product.setCreationTime(TrainingDateUtil.getCreationTime());
 		product.setPrice(priceRow);
 		product.setField(field);
+		product.setOwner(customerModel);
 		productService.saveProduct(product);
 	}
 }

@@ -1,5 +1,7 @@
 package com.training.core.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
@@ -24,6 +26,12 @@ public class DefualtProductService implements ProductService
 	public void saveProduct(ProductModel productModel) 
 	{
 		productDao.createProduct(productModel);
+	}
+
+	@Override
+	public List<ProductModel> getProductsByCustomer(Long customerId) 
+	{
+		return null;
 	}
 
 }

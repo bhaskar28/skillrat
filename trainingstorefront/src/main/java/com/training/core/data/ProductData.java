@@ -6,6 +6,7 @@ public class ProductData
 	private String name;
 	private String description;
 	private PriceRowData priceRow;
+	private Long customerId;
 	
 	public Long getId() {
 		return id;
@@ -30,6 +31,12 @@ public class ProductData
 	}
 	public void setPriceRow(PriceRowData priceRow) {
 		this.priceRow = priceRow;
+	}
+	public Long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 	
 }
