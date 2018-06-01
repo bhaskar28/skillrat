@@ -18,6 +18,7 @@ import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
 import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
+import com.training.core.query.data.ProductQueryData;
 import com.training.core.service.CurrencyService;
 import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
@@ -70,11 +71,21 @@ public class ProductController
 		productService.saveProduct(product);
 	}
 	
-	@RequestMapping(value="/customer-products", method= RequestMethod.POST)
+	@RequestMapping(value="/customer-products", method= RequestMethod.GET)
 	@ResponseBody
 	public List<ProductData> getCustomerProducts(Long customerId)
 	{
 		List<ProductModel> products=productService.getProductsByCustomer(customerId);
+		
+		List<ProductData> productsData=convert(products);
+		return productsData;
+	}
+	
+	@RequestMapping(value="/customer-products", method= RequestMethod.POST)
+	@ResponseBody
+	public List<ProductData> getCustomerProducts(ProductQueryData productQuery)
+	{
+		List<ProductModel> products=productService.getProductsByCustomer(productQuery);
 		
 		List<ProductData> productsData=convert(products);
 		return productsData;
