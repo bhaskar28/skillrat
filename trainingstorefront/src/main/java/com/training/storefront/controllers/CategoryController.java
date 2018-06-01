@@ -28,7 +28,8 @@ public class CategoryController
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
-	public void createProduct(CategoryData categoryData) {
+	public void createProduct(CategoryData categoryData) 
+	{
 		System.out.println(categoryData);
 		CategoryModel category = new CategoryModel();
 		category.setName(categoryData.getName());
@@ -44,10 +45,26 @@ public class CategoryController
 	
 	@RequestMapping(value = "/pagination-list", method = RequestMethod.POST)
 	@ResponseBody
-	public void getRootCategories(CategoryQueryData categoryQuery)
+	public List<CategoryData> getRootCategories(CategoryQueryData categoryQuery)
 	{
 		List<CategoryModel> categories=categoryService.getRootCategories(categoryQuery);
 		
+		List<CategoryData> categoriesData = convert(categories);
+		return categoriesData;
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
+	@ResponseBody
+	public List<CategoryData> getRootCategories()
+	{
+		List<CategoryModel> categories=categoryService.getRootCategories();
+		
+		List<CategoryData> categoriesData = convert(categories);
+		return categoriesData;
+	}
+
+	private List<CategoryData> convert(List<CategoryModel> categories) 
+	{
 		List<CategoryData> categoriesData= new ArrayList<CategoryData>();
 		
 		for(CategoryModel category: categories)
@@ -56,6 +73,6 @@ public class CategoryController
 			categoryData.setId(category.getId());
 			categoriesData.add(categoryData);
 		}
-		
+		return categoriesData;
 	}
 }
