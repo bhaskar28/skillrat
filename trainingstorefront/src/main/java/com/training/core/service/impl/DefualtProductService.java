@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.training.core.dao.ProductDao;
 import com.training.core.model.ProductModel;
+import com.training.core.query.data.ProductQueryData;
 import com.training.core.service.ProductService;
 
 //This service annotation is to identify a service
@@ -31,7 +32,12 @@ public class DefualtProductService implements ProductService
 	@Override
 	public List<ProductModel> getProductsByCustomer(Long customerId) 
 	{
-		return null;
+		return productDao.getProductsByCustomer(customerId);
 	}
 
+	@Override
+	public List<ProductModel> getProductsByCustomer(ProductQueryData productQuery)
+	{
+		return productDao.getProductsByCustomer(productQuery);
+	}
 }

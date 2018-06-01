@@ -1,6 +1,9 @@
 package com.training.storefront.controllers;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -57,7 +60,6 @@ public class ProductController
 		priceRowService.createPrice(priceRow);
 		
 		CustomerModel customerModel=customerService.getCustomerById(productData.getCustomerId());
-		System.out.println(productData);
 		ProductModel product= new ProductModel();
 		product.setName(productData.getName());
 		product.setDescription(productData.getDescription());
@@ -67,4 +69,41 @@ public class ProductController
 		product.setOwner(customerModel);
 		productService.saveProduct(product);
 	}
+	
+	@RequestMapping(value="/customer-products", method= RequestMethod.POST)
+	@ResponseBody
+	public List<ProductData> getCustomerProducts(Long customerId)
+	{
+		List<ProductModel> products=productService.getProductsByCustomer(customerId);
+		
+		List<ProductData> productsData=convert(products);
+		return productsData;
+	}
+
+	private List<ProductData> convert(List<ProductModel> products) 
+	{
+		List<ProductData> productsList= new ArrayList<ProductData>();
+		for(ProductModel product: products)
+		{
+			PriceRowModel priceRowModel= product.getPrice();
+			PriceRowData priceRow= new PriceRowData();
+			ProductData productData= new ProductData();
+			if(priceRowModel != null)
+			{
+				priceRow.setCurrencyCode(priceRowModel.getCurrency().getIsoCode());
+				priceRow.setFixedPrice(priceRowModel.getFixedPrice());
+				priceRow.setMaximum(priceRowModel.getMaximumPrice());
+				priceRow.setMinimum(priceRowModel.getMinimumPrice());
+				priceRow.setId(priceRowModel.getId());
+				productData.setPriceRow(priceRow);
+			}
+			
+			productData.setDescription(productData.getDescription());
+			productData.setName(productData.getName());
+			productData.setPriceRow(priceRow);
+			productsList.add(productData);
+		}
+		return productsList;
+	}
+	
 }
