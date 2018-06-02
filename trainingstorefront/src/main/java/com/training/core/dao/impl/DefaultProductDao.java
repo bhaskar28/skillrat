@@ -61,4 +61,11 @@ public class DefaultProductDao implements ProductDao
 		return query.list();
 	}
 
+
+	@Override
+	public ProductModel getProductById(Long productId) 
+	{
+		return (ProductModel) sessionFactory.getCurrentSession().get(ProductModel.class, productId);
+	}
+
 }

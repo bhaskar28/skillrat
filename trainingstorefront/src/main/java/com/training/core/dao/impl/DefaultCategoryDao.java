@@ -24,6 +24,7 @@ public class DefaultCategoryDao implements CategoryDao
 		sessionFactory.getCurrentSession().saveOrUpdate( category);
 	}
 
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryModel> getRootCategories() 
@@ -42,6 +43,12 @@ public class DefaultCategoryDao implements CategoryDao
 		query.setFirstResult((categoryQuery.getPage()-1)*categoryQuery.getPageSize());
 		query.setMaxResults(categoryQuery.getPageSize());
 		return query.list();
+	}
+
+	@Override
+	public CategoryModel getCategoryById(Long categoryId) 
+	{
+		return (CategoryModel) sessionFactory.getCurrentSession().get(CategoryModel.class, categoryId);
 	}
 
 }

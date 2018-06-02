@@ -10,4 +10,5 @@ public interface ProductDao
 	void createProduct(ProductModel productModel);
 	List<ProductModel> getProductsByCustomer(Long customerId);
 	List<ProductModel> getProductsByCustomer(ProductQueryData productQuery);
+	ProductModel getProductById(Long productId);
 }

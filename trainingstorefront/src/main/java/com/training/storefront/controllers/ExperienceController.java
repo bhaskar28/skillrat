@@ -28,7 +28,6 @@ public class ExperienceController
 	@ResponseBody
 	public void createExperience(ExperienceData experienceData) 
 	{
-		System.out.println(experienceData);
 		ExperienceModel experience = new ExperienceModel();
 		experience.setYears(experienceData.getYears());
 		experience.setMonths(experienceData.getMonths());

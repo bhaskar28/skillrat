@@ -9,4 +9,5 @@ public interface CategoryService
 	void saveProduct(CategoryModel categoryModel);
 	List<CategoryModel> getRootCategories();
 	List<CategoryModel> getRootCategories(CategoryQueryData categoryQuery);
+	CategoryModel getCategoryById(Long categoryId);
 }

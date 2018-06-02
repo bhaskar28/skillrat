@@ -12,7 +12,7 @@ import com.training.core.model.BusinessUnitModel;
 import com.training.core.service.BusinessService;
 
 @Controller
-@RequestMapping("/bus")
+@RequestMapping("/business")
 public class BusinessUnitController 
 {
 	

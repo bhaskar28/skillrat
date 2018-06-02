@@ -80,7 +80,7 @@ public class CustomerController
 		customerService.saveCustomer(customer);
 	}
 	
-	@RequestMapping(value="{id}", produces="application/json")
+	@RequestMapping(value="/{id}", produces="application/json")
 	@ResponseBody
 	public CustomerData getCustomerById(@PathVariable("id") Long id)
 	{

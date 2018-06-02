@@ -31,6 +31,18 @@ public class CourseModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@OneToOne
+	@JoinColumn(name = "CATEGORY")
+	private CategoryModel category;
+	
+	@OneToOne
+	@JoinColumn(name = "OWNER")
+	private CustomerModel owner;
+	
+	@OneToOne
+	@JoinColumn(name = "OWNER")
+	private CustomerModel trainer;
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +66,30 @@ public class CourseModel
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public Date getCreationTime() {
+		return creationTime;
+	}
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+	public CategoryModel getCategory() {
+		return category;
+	}
+	public void setCategory(CategoryModel category) {
+		this.category = category;
+	}
+	public CustomerModel getOwner() {
+		return owner;
+	}
+	public void setOwner(CustomerModel owner) {
+		this.owner = owner;
+	}
+	public CustomerModel getTrainer() {
+		return trainer;
+	}
+	public void setTrainer(CustomerModel trainer) {
+		this.trainer = trainer;
 	}
 	
 }

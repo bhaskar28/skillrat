@@ -9,4 +9,5 @@ public interface CategoryDao
 	void createCategory(CategoryModel category);
 	List<CategoryModel> getRootCategories();
 	List<CategoryModel> getRootCategories(CategoryQueryData categoryQuery);
+	CategoryModel getCategoryById(Long categoryId);
 }

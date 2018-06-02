@@ -39,4 +39,10 @@ public class DefaultCategoryService implements CategoryService
 		return categoryDao.getRootCategories(categoryQuery);
 	}
 
+	@Override
+	public CategoryModel getCategoryById(Long categoryId) 
+	{
+		return categoryDao.getCategoryById(categoryId);
+	}
+
 }
