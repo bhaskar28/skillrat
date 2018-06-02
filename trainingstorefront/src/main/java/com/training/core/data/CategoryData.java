@@ -5,6 +5,8 @@ public class CategoryData
 	private String name;
 	private String description;
 	private Boolean hasSubCategories;
+	private Boolean hasSupCategories;
+	
 	public Long getId() {
 		return id;
 	}
@@ -28,6 +30,12 @@ public class CategoryData
 	}
 	public void setHasSubCategories(Boolean hasSubCategories) {
 		this.hasSubCategories = hasSubCategories;
+	}
+	public Boolean getHasSupCategories() {
+		return hasSupCategories;
+	}
+	public void setHasSupCategories(Boolean hasSupCategories) {
+		this.hasSupCategories = hasSupCategories;
 	}
 	@Override
 	public String toString() {

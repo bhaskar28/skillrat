@@ -1,5 +1,8 @@
 package com.training.storefront.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import com.training.core.model.CategoryModel;
 import com.training.core.model.CourseModel;
 import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
+import com.training.core.query.data.PaginationData;
 import com.training.core.service.CategoryService;
 import com.training.core.service.CourseService;
 import com.training.core.service.CustomerService;
@@ -49,5 +53,21 @@ public class CourseController
 		course.setCategory(category);
 		course.setField(fieldModel);
 		courseService.createCourse(course);
+	}
+	
+	public List<CourseData> getCourseByCategory(PaginationData paginationData, Long categoryId)
+	{
+		List<CourseModel> courses=courseService.getCoursesByCategory(paginationData, categoryId);
+		List<CourseData> coursesData= new ArrayList<CourseData>();
+		for(CourseModel course: courses)
+		{
+			CourseData courseData= new CourseData();
+			courseData.setId(course.getId());
+			courseData.setTitle(course.getTitle());
+			courseData.setContent(course.getContent());
+			courseData.setCreatedDate(course.getCreationTime());
+			coursesData.add(courseData);
+		}
+		return coursesData;
 	}
 }
