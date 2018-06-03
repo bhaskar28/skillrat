@@ -14,7 +14,7 @@ public class MediaModel
 {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(name="NAME")
 	private String name;
@@ -25,10 +25,10 @@ public class MediaModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -42,6 +42,12 @@ public class MediaModel
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public Date getCreationTime() {
+		return creationTime;
+	}
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
 	}
 	
 }
