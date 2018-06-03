@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import com.training.core.data.CategoryData;
 import com.training.core.model.CategoryModel;
 import com.training.core.query.data.CategoryQueryData;
-import com.training.core.query.data.PaginationData;
 import com.training.core.service.CategoryService;
 import com.training.facade.CategoryFacade;
 
