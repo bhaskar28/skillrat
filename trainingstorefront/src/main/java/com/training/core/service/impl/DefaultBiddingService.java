@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.training.core.dao.BiddingDao;
 import com.training.core.model.BiddingModel;
@@ -17,18 +18,21 @@ public class DefaultBiddingService implements BiddingService
 	private BiddingDao biddingDao;
 	
 	@Override
+	@Transactional
 	public void saveBidding(BiddingModel bidding) 
 	{
 		biddingDao.saveBidding(bidding);
 	}
 
 	@Override
+	@Transactional
 	public BiddingModel getBiddingById(Long biddingId) 
 	{
 		return biddingDao.getBiddingById(biddingId);
 	}
 
 	@Override
+	@Transactional
 	public List<BiddingModel> getBiddingsByProduct(Long productId) 
 	{
 		return null;

@@ -21,7 +21,7 @@ public class DefaultCourseDao implements CourseDao
 	@Override
 	public void createCourse(CourseModel cource) 
 	{
-		sessionFactory.getCurrentSession().save(cource);
+		sessionFactory.getCurrentSession().saveOrUpdate(cource);
 	}
 
 	@Override

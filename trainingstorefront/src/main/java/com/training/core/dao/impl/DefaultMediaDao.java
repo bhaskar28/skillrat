@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.training.core.dao.MediaDao;
 import com.training.core.model.MediaModel;
 
-@Repository
+@Repository("mediaDao")
 public class DefaultMediaDao implements MediaDao
 {
 	@Resource(name="sessionFactory")

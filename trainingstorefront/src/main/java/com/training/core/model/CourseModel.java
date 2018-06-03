@@ -40,7 +40,7 @@ public class CourseModel
 	private CustomerModel owner;
 	
 	@OneToOne
-	@JoinColumn(name = "OWNER")
+	@JoinColumn(name = "TRAINER")
 	private CustomerModel trainer;
 	
 	public Long getId() {
