@@ -51,4 +51,11 @@ public class DefaultCategoryDao implements CategoryDao
 		return (CategoryModel) sessionFactory.getCurrentSession().get(CategoryModel.class, categoryId);
 	}
 
+
+	@Override
+	public List<CategoryModel> getSubCategories(Long categoryId) 
+	{
+		return null;
+	}
+
 }

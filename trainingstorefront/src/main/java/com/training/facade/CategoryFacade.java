@@ -10,4 +10,5 @@ public interface CategoryFacade
 	CategoryData getCategoryData(Long categoryId);
 	List<CategoryData> getCategories(CategoryQueryData pagination);
 	List<CategoryData> getCategories();
+	List<CategoryData> getSubCategories(Long categoryId);
 }

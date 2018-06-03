@@ -10,4 +10,5 @@ public interface CategoryService
 	List<CategoryModel> getRootCategories();
 	List<CategoryModel> getRootCategories(CategoryQueryData categoryQuery);
 	CategoryModel getCategoryById(Long categoryId);
+	List<CategoryModel> getSubCategories(Long categoryId);
 }

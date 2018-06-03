@@ -1,6 +1,5 @@
 package com.training.storefront.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;

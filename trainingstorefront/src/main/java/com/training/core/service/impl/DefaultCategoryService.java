@@ -48,4 +48,10 @@ public class DefaultCategoryService implements CategoryService
 		return categoryDao.getCategoryById(categoryId);
 	}
 
+	@Override
+	public List<CategoryModel> getSubCategories(Long categoryId) 
+	{
+		return null;
+	}
+
 }

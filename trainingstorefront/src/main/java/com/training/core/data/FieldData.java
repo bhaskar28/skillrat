@@ -4,6 +4,8 @@ public class FieldData
 {
 	private Long id;
 	private String name;
+	private Long categoryId;
+	
 	public Long getId() {
 		return id;
 	}
@@ -16,9 +18,10 @@ public class FieldData
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@Override
-	public String toString() {
-		return "FieldData [id=" + id + ", name=" + name 	+ "]";
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
 	}
 }

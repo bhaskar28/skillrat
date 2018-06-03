@@ -69,8 +69,18 @@ public class DefaultCategoryFacade implements CategoryFacade
 			{
 				categoryData.setCategoryImageUrl(category.getMedia().getUrl());
 			}
+			else
+			{
+				categoryData.setCategoryImageUrl("http://res.cloudinary.com/vcommerce/image/upload/v1528049926/sd_asqm12.png");
+			}
 		}
 		return categoriesData;
+	}
+
+	@Override
+	public List<CategoryData> getSubCategories(Long categoryId) 
+	{
+		return null;
 	}
 
 }

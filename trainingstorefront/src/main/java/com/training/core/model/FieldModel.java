@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,10 @@ public class FieldModel
 
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
+	
+	@OneToOne
+	@JoinColumn(name = "CATEGORY")
+	private CategoryModel category;
 	
 	public Long getId() {
 		return id;
@@ -38,4 +44,20 @@ public class FieldModel
 		this.name = name;
 	}
 
+	public Date getCreationTime() {
+		return creationTime;
+	}
+
+	public void setCreationTime(Date creationTime) {
+		this.creationTime = creationTime;
+	}
+
+	public CategoryModel getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryModel category) {
+		this.category = category;
+	}
+	
 }
