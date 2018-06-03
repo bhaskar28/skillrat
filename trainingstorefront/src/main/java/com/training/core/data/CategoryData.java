@@ -6,6 +6,7 @@ public class CategoryData
 	private String description;
 	private Boolean hasSubCategories;
 	private Boolean hasSupCategories;
+	private String categoryImageUrl;
 	
 	public Long getId() {
 		return id;
@@ -41,6 +42,12 @@ public class CategoryData
 	public String toString() {
 		return "CategoryData [id=" + id + ", name=" + name + ", description=" + description + ", hasSubCategories="
 				+ hasSubCategories + "]";
+	}
+	public String getCategoryImageUrl() {
+		return categoryImageUrl;
+	}
+	public void setCategoryImageUrl(String categoryImageUrl) {
+		this.categoryImageUrl = categoryImageUrl;
 	}
 	
 }

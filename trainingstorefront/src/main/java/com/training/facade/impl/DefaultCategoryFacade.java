@@ -12,12 +12,16 @@ import com.training.core.model.CategoryModel;
 import com.training.core.query.data.CategoryQueryData;
 import com.training.core.service.CategoryService;
 import com.training.facade.CategoryFacade;
+import com.training.facade.MediaFacade;
 
 @Component("categoryFacade")
 public class DefaultCategoryFacade implements CategoryFacade
 {
 	@Resource(name="categoryService")
 	private CategoryService categoryService;
+	
+	@Resource(name="mediaFacade")
+	private MediaFacade mediaFacade;
 	
 	@Override
 	public CategoryData getCategoryData(Long categoryId) 
@@ -39,6 +43,14 @@ public class DefaultCategoryFacade implements CategoryFacade
 		return categoriesData;
 	}
 
+	@Override
+	public List<CategoryData> getCategories() 
+	{
+		List<CategoryModel> categories=categoryService.getRootCategories();
+		List<CategoryData> categoriesData=convert(categories);
+		return categoriesData;
+	}
+	
 	private List<CategoryData> convert(List<CategoryModel> categories) 
 	{
 		List<CategoryData> categoriesData= new ArrayList<CategoryData>();
@@ -47,8 +59,18 @@ public class DefaultCategoryFacade implements CategoryFacade
 		{
 			CategoryData categoryData= new CategoryData();
 			categoryData.setId(category.getId());
+			categoryData.setName(category.getName());
+			categoryData.setDescription(category.getDescription());
+			categoryData.setHasSubCategories(category.getHasSubCategories());
+			categoryData.setHasSupCategories(category.getHasSuperCategories());
 			categoriesData.add(categoryData);
+			
+			if(category.getMedia()!= null && category.getMedia().getUrl()!= null)
+			{
+				categoryData.setCategoryImageUrl(category.getMedia().getUrl());
+			}
 		}
 		return categoriesData;
 	}
+
 }

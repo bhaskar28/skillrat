@@ -47,22 +47,7 @@ public class CategoryController
 	@ResponseBody
 	public List<CategoryData> getRootCategories()
 	{
-		List<CategoryModel> categories=categoryService.getRootCategories();
-		
-		List<CategoryData> categoriesData = convert(categories);
-		return categoriesData;
+		return categoryFacade.getCategories();
 	}
 
-	private List<CategoryData> convert(List<CategoryModel> categories) 
-	{
-		List<CategoryData> categoriesData= new ArrayList<CategoryData>();
-		
-		for(CategoryModel category: categories)
-		{
-			CategoryData categoryData= new CategoryData();
-			categoryData.setId(category.getId());
-			categoriesData.add(categoryData);
-		}
-		return categoriesData;
-	}
 }

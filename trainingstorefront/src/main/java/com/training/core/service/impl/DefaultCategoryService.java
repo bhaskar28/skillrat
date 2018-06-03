@@ -28,18 +28,21 @@ public class DefaultCategoryService implements CategoryService
 	}
 
 	@Override
+	@Transactional
 	public List<CategoryModel> getRootCategories() 
 	{
 		return categoryDao.getRootCategories();
 	}
 
 	@Override
+	@Transactional
 	public List<CategoryModel> getRootCategories(CategoryQueryData categoryQuery) 
 	{
 		return categoryDao.getRootCategories(categoryQuery);
 	}
 
 	@Override
+	@Transactional
 	public CategoryModel getCategoryById(Long categoryId) 
 	{
 		return categoryDao.getCategoryById(categoryId);

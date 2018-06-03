@@ -30,7 +30,7 @@ public class DefaultCategoryDao implements CategoryDao
 	public List<CategoryModel> getRootCategories() 
 	{
 		Query query=sessionFactory.getCurrentSession().createQuery("From "+com.training.core.model.CategoryModel.class.getName()+" "
-				+ "WHERE hasSuperCategories :=false");
+				+ "WHERE hasSuperCategories =false");
 		return query.list();
 	}
 
@@ -39,7 +39,7 @@ public class DefaultCategoryDao implements CategoryDao
 	public List<CategoryModel> getRootCategories(CategoryQueryData categoryQuery) 
 	{
 		Query query=sessionFactory.getCurrentSession().createQuery("From "+com.training.core.model.CategoryModel.class.getName()+" "
-				+ "WHERE hasSuperCategories :=false");
+				+ "WHERE hasSuperCategories =false");
 		query.setFirstResult((categoryQuery.getPage()-1)*categoryQuery.getPageSize());
 		query.setMaxResults(categoryQuery.getPageSize());
 		return query.list();
