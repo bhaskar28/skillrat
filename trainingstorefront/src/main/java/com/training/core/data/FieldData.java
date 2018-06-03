@@ -1,5 +1,7 @@
 package com.training.core.data;
-public class FieldData {
+
+public class FieldData 
+{
 	private Long id;
 	private String name;
 	public Long getId() {

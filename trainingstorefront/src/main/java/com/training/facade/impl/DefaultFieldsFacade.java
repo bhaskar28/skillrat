@@ -12,8 +12,16 @@ import com.training.facade.FieldsFacade;
 @Component("fieldsFacade")
 public class DefaultFieldsFacade implements FieldsFacade
 {
-	@Resource(name="")
+	@Resource(name="fieldService")
 	private FieldService fieldService;
+	
+	@Override
+	public void addField(FieldData fieldData)
+	{
+		FieldModel field = new FieldModel();
+		field.setName(fieldData.getName());
+		fieldService.saveField(field);
+	}
 	
 	@Override
 	public FieldData getFieldById(Long fieldId) 
