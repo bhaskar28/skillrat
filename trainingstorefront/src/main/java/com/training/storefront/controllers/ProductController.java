@@ -25,12 +25,16 @@ import com.training.core.service.FieldService;
 import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
 import com.training.core.util.TrainingDateUtil;
+import com.training.facade.ProductFacade;
 
 @Controller
 @RequestMapping("/p")
 public class ProductController 
 {
 	private static final Logger LOG= Logger.getLogger(ProductController.class);
+
+	@Resource(name="productFacade")
+	private ProductFacade productFacade;
 	
 	@Resource(name="productService")
 	private ProductService productService;
@@ -51,24 +55,8 @@ public class ProductController
 	@ResponseBody
 	public void createProduct(ProductData productData, PriceRowData priceRowData, Long fieldId)
 	{
-		FieldModel field=fieldService.getFieldById(fieldId);
-		PriceRowModel priceRow= new PriceRowModel();
-		priceRow.setCurrency(currencyService.getCurrencyByISOCode(priceRowData.getCurrencyCode()));
-		priceRow.setFixedPrice(priceRowData.getFixedPrice());
-		priceRow.setMaximumPrice(priceRowData.getMaximum());
-		priceRow.setMinimumPrice(priceRowData.getMinimum());
-		
-		priceRowService.createPrice(priceRow);
-		
-		CustomerModel customerModel=customerService.getCustomerById(productData.getCustomerId());
-		ProductModel product= new ProductModel();
-		product.setName(productData.getName());
-		product.setDescription(productData.getDescription());
-		product.setCreationTime(TrainingDateUtil.getCreationTime());
-		product.setPrice(priceRow);
-		product.setField(field);
-		product.setOwner(customerModel);
-		productService.saveProduct(product);
+		productData.setPriceRow(priceRowData);
+		productFacade.saveProduct(productData);
 	}
 	
 	@RequestMapping(value="/customer-products", method= RequestMethod.GET)

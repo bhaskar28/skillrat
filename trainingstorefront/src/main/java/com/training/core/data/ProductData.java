@@ -7,6 +7,9 @@ public class ProductData
 	private String description;
 	private PriceRowData priceRow;
 	private Long customerId;
+	private Long fieldId;
+	private Long categoryId;
+	private FieldData fieldData;
 	
 	public Long getId() {
 		return id;
@@ -38,5 +41,22 @@ public class ProductData
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
-	
+	public Long getFieldId() {
+		return fieldId;
+	}
+	public void setFieldId(Long fieldId) {
+		this.fieldId = fieldId;
+	}
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+	public FieldData getFieldData() {
+		return fieldData;
+	}
+	public void setFieldData(FieldData fieldData) {
+		this.fieldData = fieldData;
+	}
 }
