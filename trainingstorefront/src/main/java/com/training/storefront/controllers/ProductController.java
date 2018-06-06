@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
-import com.training.core.model.CustomerModel;
-import com.training.core.model.FieldModel;
 import com.training.core.model.PriceRowModel;
 import com.training.core.model.ProductModel;
 import com.training.core.query.data.ProductQueryData;
@@ -24,7 +22,6 @@ import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
 import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
-import com.training.core.util.TrainingDateUtil;
 import com.training.facade.ProductFacade;
 
 @Controller

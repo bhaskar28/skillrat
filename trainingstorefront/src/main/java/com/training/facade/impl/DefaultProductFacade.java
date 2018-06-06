@@ -1,5 +1,6 @@
 package com.training.facade.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,7 +11,6 @@ import com.training.core.data.FieldData;
 import com.training.core.data.PriceRowData;
 import com.training.core.data.ProductData;
 import com.training.core.model.CategoryModel;
-import com.training.core.model.CurrencyModel;
 import com.training.core.model.CustomerModel;
 import com.training.core.model.FieldModel;
 import com.training.core.model.PriceRowModel;
@@ -22,11 +22,13 @@ import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
 import com.training.core.service.PriceRowService;
 import com.training.core.service.ProductService;
+import com.training.core.util.TrainingDateUtil;
 import com.training.facade.CategoryFacade;
 import com.training.facade.FieldsFacade;
+import com.training.facade.PriceRowFacade;
 import com.training.facade.ProductFacade;
 
-@Component
+@Component("productFacade")
 public class DefaultProductFacade implements ProductFacade
 {
 	@Resource(name="fieldFacade")
@@ -53,6 +55,9 @@ public class DefaultProductFacade implements ProductFacade
 	@Resource(name="currencyService")
 	private CurrencyService currencyService;
 	
+	@Resource(name="priceRowFacade")
+	private PriceRowFacade priceRowFacade;
+	
 	@Override
 	public void saveProduct(ProductData productData) 
 	{
@@ -60,15 +65,8 @@ public class DefaultProductFacade implements ProductFacade
 		FieldModel field= fieldService.getFieldById(productData.getFieldId());
 		CategoryModel category= categoryService.getCategoryById(productData.getCategoryId());
 		PriceRowData priceRowData= productData.getPriceRow();
-		CurrencyModel currencyModel=currencyService.getCurrencyByISOCode(priceRowData.getCurrencyCode());
 		
-		PriceRowModel priceRow= new PriceRowModel();
-		priceRow.setFixedPrice(priceRowData.getFixedPrice());
-		priceRow.setMaximumPrice(priceRowData.getMaximum());
-		priceRow.setMinimumPrice(priceRowData.getMinimum());
-		priceRow.setCurrency(currencyModel);
-		priceRowService.createPrice(priceRow);
-		
+		PriceRowModel priceRow=priceRowFacade.createPriceRow(priceRowData);
 		
 		ProductModel productModel= new ProductModel();
 		productModel.setName(productData.getName());
@@ -77,6 +75,8 @@ public class DefaultProductFacade implements ProductFacade
 		productModel.setField(field);
 		productModel.setCategory(category);
 		productModel.setPrice(priceRow);
+		productModel.setCreationTime(TrainingDateUtil.getCreationTime());
+		productService.saveProduct(productModel);
 	}
 
 	@Override
@@ -96,13 +96,31 @@ public class DefaultProductFacade implements ProductFacade
 	@Override
 	public List<ProductData> getProductsByCustomer(ProductQueryData productQuery) 
 	{
-		return null;
+		List<ProductModel> products=productService.getProductsByCustomer(productQuery);
+		List<ProductData> productsData= convert(products);
+		return productsData;
 	}
 
 	@Override
 	public List<ProductData> getProductsByCustomer(Long customerId) 
 	{
-		return null;
+		List<ProductModel> products=productService.getProductsByCustomer(customerId);
+		List<ProductData> productsData= convert(products);
+		return productsData;
 	}
 
+	private List<ProductData> convert(List<ProductModel> products) 
+	{
+		List<ProductData> productsList= new ArrayList<ProductData>();
+		for(ProductModel product: products)
+		{
+			PriceRowData priceRow= new PriceRowData();
+			ProductData productData= new ProductData();
+			productData.setDescription(product.getDescription());
+			productData.setName(product.getName());
+			productData.setPriceRow(priceRow);
+			productsList.add(productData);
+		}
+		return productsList;
+	}
 }
