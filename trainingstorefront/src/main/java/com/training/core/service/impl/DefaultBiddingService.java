@@ -35,7 +35,7 @@ public class DefaultBiddingService implements BiddingService
 	@Transactional
 	public List<BiddingModel> getBiddingsByProduct(Long productId) 
 	{
-		return null;
+		return biddingDao.getBiddingsByProduct(productId);
 	}
 
 }
