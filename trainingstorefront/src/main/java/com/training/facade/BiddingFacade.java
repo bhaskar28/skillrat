@@ -4,5 +4,5 @@ import com.training.core.data.BiddingData;
 
 public interface BiddingFacade 
 {
-	BiddingData createBig(BiddingData biddingData);
+	BiddingData createBid(BiddingData biddingData);
 }
