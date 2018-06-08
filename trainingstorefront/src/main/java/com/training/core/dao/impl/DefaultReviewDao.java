@@ -1,7 +1,10 @@
 package com.training.core.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +21,8 @@ public class DefaultReviewDao implements ReviewDao
 		return sessionFactory;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public void setSessionFactory(SessionFactory sessionFactory) 
+	{
 		this.sessionFactory = sessionFactory;
 	}
 
@@ -27,6 +31,15 @@ public class DefaultReviewDao implements ReviewDao
 	public void saveReview(ReviewModel reviewModel) 
 	{
 		sessionFactory.getCurrentSession().saveOrUpdate(reviewModel);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ReviewModel> getCustomerReviews(Long customerId) 
+	{
+		Query query=sessionFactory.getCurrentSession().createQuery("FROM "+com.training.core.model.ReviewModel.class.getName()+" "
+				+ " WHERE customer.id =:customerId");
+		return query.list();
 	}
 
 }

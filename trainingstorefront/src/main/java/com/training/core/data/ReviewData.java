@@ -7,6 +7,7 @@ public class ReviewData
 	private Integer rating;
 	private Long customerId;
 	private Long givenByCustomer;
+	private CustomerData givenBy;
 	
 	public Long getId() {
 		return id;
@@ -37,6 +38,13 @@ public class ReviewData
 	}
 	public void setGivenByCustomer(Long givenByCustomer) {
 		this.givenByCustomer = givenByCustomer;
+	}
+	
+	public CustomerData getGivenBy() {
+		return givenBy;
+	}
+	public void setGivenBy(CustomerData givenBy) {
+		this.givenBy = givenBy;
 	}
 	@Override
 	public String toString() {
