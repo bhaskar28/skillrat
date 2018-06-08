@@ -23,6 +23,7 @@ public class DefaultRoleService implements RoleService
 	}
 
 	@Override
+	@Transactional
 	public UserRoleModel getRoleByCustomer(Long customerId) 
 	{
 		return roleDao.getUserRole(customerId);

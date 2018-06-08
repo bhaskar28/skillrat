@@ -9,4 +9,5 @@ public interface BiddingDao
 	void saveBidding(BiddingModel bidding);
 	BiddingModel getBiddingById(Long biddingId);
 	List<BiddingModel> getBiddingsByProduct(Long productId);
+	List<BiddingModel> getBiddingsByCustomer(Long customerId);
 }

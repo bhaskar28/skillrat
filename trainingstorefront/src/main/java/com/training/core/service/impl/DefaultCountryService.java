@@ -22,6 +22,7 @@ public class DefaultCountryService  implements CountryService
 	}
 
 	@Override
+	@Transactional
 	public CountryModel getCountry(Long id) 
 	{
 		return countryDao.getCountry(id);

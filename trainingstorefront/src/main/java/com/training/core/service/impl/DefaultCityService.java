@@ -26,6 +26,7 @@ public class DefaultCityService implements CityService
 
 
 	@Override
+	@Transactional
 	public List<CityModel> getAllCitiesForRegion(Long regionCode) 
 	{
 		return cityDao.getAllCitiesForRegion(regionCode);

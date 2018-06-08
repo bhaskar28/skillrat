@@ -38,4 +38,18 @@ public class DefaultBiddingService implements BiddingService
 		return biddingDao.getBiddingsByProduct(productId);
 	}
 
+	@Override
+	@Transactional
+	public List<BiddingModel> getCustomerBiddings(Long customerId) 
+	{
+		return biddingDao.getBiddingsByCustomer(customerId);
+	}
+
+	@Override
+	@Transactional
+	public List<BiddingModel> getProductBiddings(Long productId) 
+	{
+		return biddingDao.getBiddingsByProduct(productId);
+	}
+
 }

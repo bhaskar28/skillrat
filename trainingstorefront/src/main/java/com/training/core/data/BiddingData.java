@@ -9,6 +9,8 @@ public class BiddingData
 	private BigDecimal bidPrice;
 	private Long productId;
 	private Long customerId;
+	private ProductData productData;
+	private CustomerData customerData;
 	
 	public Long getId() {
 		return id;
@@ -39,6 +41,18 @@ public class BiddingData
 	}
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
+	}
+	public ProductData getProductData() {
+		return productData;
+	}
+	public void setProductData(ProductData productData) {
+		this.productData = productData;
+	}
+	public CustomerData getCustomerData() {
+		return customerData;
+	}
+	public void setCustomerData(CustomerData customerData) {
+		this.customerData = customerData;
 	}
 	
 }

@@ -24,16 +24,17 @@ public class DefaultRegionService implements RegionService
 	}
 
 	@Override
+	@Transactional
 	public RegionModel getRegionById(Long id) 
 	{
 		return regionDao.getRegionById(id);
 	}
 
 	@Override
+	@Transactional
 	public List<RegionModel> getRegionsForCountry(Long countryId) 
 	{
 		return regionDao.getRegionsForCountry(countryId);
 	}
-	
 	
 }

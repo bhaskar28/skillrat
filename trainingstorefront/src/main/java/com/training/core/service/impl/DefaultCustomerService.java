@@ -57,6 +57,7 @@ public class DefaultCustomerService implements CustomerService
 
 
 	@Override
+	@Transactional
 	public CustomerModel getCustomerByUserName(String username) 
 	{
 		return customerDao.getCustomerByUserName(username);
@@ -64,6 +65,7 @@ public class DefaultCustomerService implements CustomerService
 
 
 	@Override
+	@Transactional
 	public ClientDetails getByClientId(String clientId) 
 	{
 		return customerDao.getByClientId(clientId);

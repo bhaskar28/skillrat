@@ -23,6 +23,7 @@ public class DefaultBusinessUnitService implements BusinessService
 	}
 
 	@Override
+	@Transactional
 	public BusinessUnitModel getBusinessUnit(Long id) 
 	{
 		return businessUnitDao.getBusinessUnit(id);

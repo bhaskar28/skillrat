@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.training.core.data.BiddingData;
-import com.training.core.model.BiddingModel;
-import com.training.core.model.CustomerModel;
-import com.training.core.model.ProductModel;
 import com.training.core.service.BiddingService;
 import com.training.core.service.CustomerService;
 import com.training.core.service.ProductService;
+import com.training.facade.BiddingFacade;
 
 @Controller
 @RequestMapping("/bidding")
@@ -27,16 +25,19 @@ public class BiddingController
 	@Resource(name="biddingService")
 	private BiddingService biddingService;
 	
+	@Resource(name="biddingFacade")
+	private BiddingFacade biddingFacade;
+	
 	@RequestMapping(value="/place", method= RequestMethod.POST)
-	public void placeBid(BiddingData biddingData)
+	public BiddingData placeBid(BiddingData biddingData)
 	{
-		ProductModel product=productService.getProductById(biddingData.getProductId());
-		CustomerModel customer=customerService.getCustomerById(biddingData.getCustomerId());
-		BiddingModel bidding= new BiddingModel();
-		bidding.setDescription(biddingData.getDescription());
-		bidding.setPrice(biddingData.getBidPrice());
-		bidding.setProduct(product);
-		bidding.setCustomer(customer);
-		biddingService.saveBidding(bidding);
+		BiddingData bidding=biddingFacade.createBid(biddingData);
+		return bidding;
+	}
+	
+	@RequestMapping(value="/customer-biddings", method= RequestMethod.POST)
+	public void getBiddingsForCustomer(Long customerId)
+	{
+		
 	}
 }

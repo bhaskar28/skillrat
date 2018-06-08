@@ -39,5 +39,15 @@ public class DefaultBiddingDao implements BiddingDao
 		
 		return query.list();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BiddingModel> getBiddingsByCustomer(Long customerId) 
+	{
+		Query query=sessionFactory.getCurrentSession().createQuery("From "+com.training.core.model.BiddingModel.class.getName()+" "
+				+ "WHERE customer.id =:customerId");
+		query.setParameter("customerId", customerId);
+		return query.list();
+	}
 	
 }

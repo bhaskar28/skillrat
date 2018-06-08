@@ -23,6 +23,7 @@ public class DefaultAddressService implements AddressService
 	}
 
 	@Override
+	@Transactional
 	public AddressModel getAddressById(Long id) 
 	{
 		return addressDao.getAddressById(id);

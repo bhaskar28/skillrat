@@ -12,16 +12,12 @@ import com.training.core.model.ProductModel;
 import com.training.core.query.data.ProductQueryData;
 import com.training.core.service.ProductService;
 
-//This service annotation is to identify a service
 @Service("productService")
 public class DefualtProductService implements ProductService
 {
-	//This annotation will inject dependency 
 	@Resource(name="productDao")
 	private ProductDao productDao;
 	
-	//Whenever we are going to save something in database we should use 
-	//@transactional on method in service level
 	@Override
 	@Transactional
 	public void saveProduct(ProductModel productModel) 
@@ -30,18 +26,21 @@ public class DefualtProductService implements ProductService
 	}
 
 	@Override
+	@Transactional
 	public List<ProductModel> getProductsByCustomer(Long customerId) 
 	{
 		return productDao.getProductsByCustomer(customerId);
 	}
 
 	@Override
+	@Transactional
 	public List<ProductModel> getProductsByCustomer(ProductQueryData productQuery)
 	{
 		return productDao.getProductsByCustomer(productQuery);
 	}
 
 	@Override
+	@Transactional
 	public ProductModel getProductById(Long productId) 
 	{
 		return productDao.getProductById(productId);
