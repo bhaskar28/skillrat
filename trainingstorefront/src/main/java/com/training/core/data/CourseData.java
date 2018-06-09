@@ -15,6 +15,7 @@ public class CourseData
 	private Long fieldId;
 	private Long customerId;
 	private CategoryData categoryData;
+	private CustomerData customerData;
 	
 	public Long getId() {
 		return id;
@@ -82,5 +83,10 @@ public class CourseData
 	public void setFieldId(Long fieldId) {
 		this.fieldId = fieldId;
 	}
-	
+	public CustomerData getCustomerData() {
+		return customerData;
+	}
+	public void setCustomerData(CustomerData customerData) {
+		this.customerData = customerData;
+	}
 }

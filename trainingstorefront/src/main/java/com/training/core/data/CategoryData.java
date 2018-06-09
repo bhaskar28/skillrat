@@ -7,6 +7,7 @@ public class CategoryData
 	private Boolean hasSubCategories;
 	private Boolean hasSupCategories;
 	private String categoryImageUrl;
+	private Double rating;
 	
 	public Long getId() {
 		return id;
@@ -48,6 +49,12 @@ public class CategoryData
 	}
 	public void setCategoryImageUrl(String categoryImageUrl) {
 		this.categoryImageUrl = categoryImageUrl;
+	}
+	public Double getRating() {
+		return rating;
+	}
+	public void setRating(Double rating) {
+		this.rating = rating;
 	}
 	
 }
