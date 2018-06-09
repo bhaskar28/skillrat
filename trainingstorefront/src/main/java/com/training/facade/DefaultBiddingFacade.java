@@ -26,10 +26,10 @@ public class DefaultBiddingFacade implements BiddingFacade
 	@Resource(name="biddingService")
 	private BiddingService biddingService;
 	
-	@Resource(name="biddingService")
+	@Resource(name="customerService")
 	private CustomerService customerService;
 	
-	@Resource(name="biddingService")
+	@Resource(name="productService")
 	private ProductService productService;
 	
 	@Resource(name="productFacade")

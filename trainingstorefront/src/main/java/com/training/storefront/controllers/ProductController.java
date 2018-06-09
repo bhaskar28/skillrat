@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,9 +54,9 @@ public class ProductController
 		productFacade.saveProduct(productData);
 	}
 	
-	@RequestMapping(value="/customer-products", method= RequestMethod.POST)
+	@RequestMapping(value="/customer/{customerId}", method= RequestMethod.POST)
 	@ResponseBody
-	public List<ProductData> getCustomerProducts(Long customerId)
+	public List<ProductData> getCustomerProducts(@PathVariable("customerId")Long customerId)
 	{
 		List<ProductData> products=productFacade.getProductsByCustomer(customerId);
 		return products;

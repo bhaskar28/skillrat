@@ -31,7 +31,7 @@ import com.training.facade.ProductFacade;
 @Component("productFacade")
 public class DefaultProductFacade implements ProductFacade
 {
-	@Resource(name="fieldFacade")
+	@Resource(name="fieldsFacade")
 	private FieldsFacade fieldFacade;
 	
 	@Resource(name="categoryFacade")
