@@ -19,7 +19,7 @@ import com.training.core.service.CustomerService;
 import com.training.core.service.FieldService;
 import com.training.storefront.validators.CustomerValidator;
 
-@Controller
+@RestController
 @RequestMapping("/customer")
 public class CustomerController 
 {
