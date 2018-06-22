@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.training.core.data.FieldData;
 import com.training.core.model.FieldModel;
-import com.training.core.service.FieldService;
-import com.training.facade.CategoryFacade;
 import com.training.facade.FieldsFacade;
 
 @Controller

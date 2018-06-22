@@ -55,6 +55,7 @@ public class CourseController
 		courseService.createCourse(course);
 	}
 	
+	@RequestMapping(value="/by-category", method= RequestMethod.GET)
 	public List<CourseData> getCourseByCategory(PaginationData paginationData, Long categoryId)
 	{
 		List<CourseModel> courses=courseService.getCoursesByCategory(paginationData, categoryId);

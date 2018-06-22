@@ -44,8 +44,12 @@ public class CustomerModel
 	@Column(name="CREATION_TIME")
 	private Date creationTime;
 	
+	@Column(name="ACTIVE")
+	private Boolean active;
+	
 	@Column(name="PASSWORD")
 	private String password;
+	
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "CUSTOMER_ADDRESSES", joinColumns = {

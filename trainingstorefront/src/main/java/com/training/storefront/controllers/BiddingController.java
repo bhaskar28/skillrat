@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.training.core.data.BiddingData;
+import com.training.core.query.data.PaginationData;
 import com.training.core.service.BiddingService;
 import com.training.core.service.CustomerService;
 import com.training.core.service.ProductService;
@@ -36,8 +37,8 @@ public class BiddingController
 	}
 	
 	@RequestMapping(value="/customer-biddings", method= RequestMethod.POST)
-	public void getBiddingsForCustomer(Long customerId)
+	public void getBiddingsForCustomer(PaginationData pagination, Long customerId)
 	{
-		
+		biddingFacade.getCustomerBiddings(customerId);
 	}
 }

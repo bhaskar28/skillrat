@@ -1,4 +1,4 @@
-package com.training.facade;
+package com.training.facade.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,9 @@ import com.training.core.model.ProductModel;
 import com.training.core.service.BiddingService;
 import com.training.core.service.CustomerService;
 import com.training.core.service.ProductService;
+import com.training.facade.BiddingFacade;
+import com.training.facade.CustomerFacade;
+import com.training.facade.ProductFacade;
 
 @Component("biddingFacade")
 public class DefaultBiddingFacade implements BiddingFacade
