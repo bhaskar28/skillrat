@@ -1,0 +1,52 @@
+package com.training.webservices.controllers;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.training.core.data.ExperienceData;
+import com.training.core.model.CustomerModel;
+import com.training.core.model.ExperienceModel;
+import com.training.core.service.CustomerService;
+import com.training.core.service.ExperienceService;
+
+@Controller
+@RequestMapping("/experience")
+public class ExperienceController 
+{
+	@Resource(name = "experienceService")
+	private ExperienceService experienceService;
+
+	@Resource(name = "customerService")
+	private CustomerService customerService;
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@ResponseBody
+	public void createExperience(ExperienceData experienceData) 
+	{
+		ExperienceModel experience = new ExperienceModel();
+		experience.setYears(experienceData.getYears());
+		experience.setMonths(experienceData.getMonths());
+		experience.setSummary(experienceData.getSummary());
+		CustomerModel customer=customerService.getCustomerById(experienceData.getCustomerId());
+		experience.setCustomer(customer);
+		experienceService.saveExperience(experience);
+	}
+	
+	@RequestMapping(value="/{customerId}", produces="application/json")
+	@ResponseBody
+	public ExperienceData getExperienceForCustomer(@PathVariable("customerId")Long customerId)
+	{
+		ExperienceModel experience=experienceService.getExperienceForCustomer(customerId);
+		ExperienceData experienceData= new ExperienceData();
+		experienceData.setId(experience.getId());
+		experienceData.setYears(experience.getYears());
+		experienceData.setMonths(experience.getMonths());
+		experienceData.setSummary(experienceData.getSummary());
+		return experienceData;
+	}
+}

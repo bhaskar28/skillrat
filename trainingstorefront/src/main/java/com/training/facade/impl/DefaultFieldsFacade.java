@@ -9,6 +9,7 @@ import com.training.core.model.CategoryModel;
 import com.training.core.model.FieldModel;
 import com.training.core.service.CategoryService;
 import com.training.core.service.FieldService;
+import com.training.core.util.TrainingDateUtil;
 import com.training.facade.FieldsFacade;
 
 @Component("fieldsFacade")
@@ -27,6 +28,7 @@ public class DefaultFieldsFacade implements FieldsFacade
 		FieldModel field = new FieldModel();
 		field.setName(fieldData.getName());
 		field.setCategory(categoryModel);
+		field.setCreationTime(TrainingDateUtil.getCreationTime());
 		fieldService.saveField(field);
 	}
 	
@@ -34,6 +36,12 @@ public class DefaultFieldsFacade implements FieldsFacade
 	public FieldData getFieldById(Long fieldId) 
 	{
 		FieldModel fieldModel=fieldService.getFieldById(fieldId);
+		FieldData fieldData = covert(fieldModel);
+		return fieldData;
+	}
+
+	private FieldData covert(FieldModel fieldModel) 
+	{
 		FieldData fieldData= new FieldData();
 		fieldData.setId(fieldModel.getId());
 		fieldData.setName(fieldModel.getName());

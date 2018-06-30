@@ -11,4 +11,5 @@ public interface ProductService
 	List<ProductModel> getProductsByCustomer(Long customerId);
 	List<ProductModel> getProductsByCustomer(ProductQueryData productQuery);
 	ProductModel getProductById(Long productId);
+	List<ProductModel> getProducts(ProductQueryData productQuery);
 }

@@ -12,19 +12,18 @@ import com.training.core.model.FieldModel;
 public class DefaultFieldDao implements FieldDao
 {
 	// sessionFactory is a database connection factory name.which is configured in xml file.
-		@Resource(name="sessionFactory")
-		private SessionFactory sessionFactory;
+	@Resource(name="sessionFactory")
+	private SessionFactory sessionFactory;
 
-		@Override
-		public void createField(FieldModel field) 
-		{
-			sessionFactory.getCurrentSession().saveOrUpdate( field);
-		}
+	@Override
+	public void createField(FieldModel field) 
+	{
+		sessionFactory.getCurrentSession().saveOrUpdate( field);
+	}
 
-		@Override
-		public FieldModel getFieldById(Long id) 
-		{
-			return (FieldModel) sessionFactory.getCurrentSession().get(FieldModel.class, id);
-		}
-
+	@Override
+	public FieldModel getFieldById(Long id) 
+	{
+		return (FieldModel) sessionFactory.getCurrentSession().get(FieldModel.class, id);
+	}
 }

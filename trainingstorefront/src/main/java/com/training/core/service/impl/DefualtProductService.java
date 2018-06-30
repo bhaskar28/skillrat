@@ -45,4 +45,10 @@ public class DefualtProductService implements ProductService
 	{
 		return productDao.getProductById(productId);
 	}
+
+	@Override
+	public List<ProductModel> getProducts(ProductQueryData productQuery) 
+	{
+		return null;
+	}
 }
