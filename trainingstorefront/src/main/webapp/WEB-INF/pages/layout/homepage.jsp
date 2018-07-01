@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
@@ -38,306 +39,9 @@
 <link rel="apple-touch-icon" sizes="114x114" href="${pageContext.request.contextPath}/static/images/apple-touch-icon-114x114.png">
 </head>
 <body>
-<div class="se-pre-con"></div>
-<div id="newslater-popup" class="mfp-hide white-popup-block open align-center">
-  <div class="nl-popup-main">
-    <div class="nl-popup-inner">
-      <div class="newsletter-icon">
-        <img src="images/newsletter-icon.png" alt="Pioneer">
-      </div>
-      <div class="nl-popup-title">Hello!</div>
-      <div class="sub-text">Sign up to Our Newsletter <br>to get <b>15%</b> Off <br>Hurry, Offer Ends, in <b>5</b> Days</div>
-      <div class="email-box-main">
-        <form>
-          <div class="email-box">
-            <input type="text" placeholder="Enter email....." class="input-text">
-            <button class="btn-white mt-20 email-btn">sign up</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="main"> 
   <!-- HEADER START -->
-  <header class="navbar navbar-custom" id="header">
-    <div class="header-top">
-      <div class="container">
-        <div class="header-top-inner">
-          <div class="row">
-            <div class="col-sm-5">
-              <div class="top-link top-link-left">
-                <ul>
-                  <li class="language-icon">
-                    <select>
-                      <option selected="selected" value="">English</option>
-                      <option value="">French</option>
-                      <option value="">German</option>
-                    </select>
-                  </li>
-                  <li class="sitemap-icon">
-                    <select>
-                      <option selected="selected" value="">USD</option>
-                      <option value="">AUD</option>
-                      <option value="">EUR</option>
-                    </select>
-                  </li>  
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-7">
-              <div class="top-link right-side">
-                <ul>
-                  <li class="account-icon"><a href="account.html" title="My Account"><span></span> My Account</a></li>
-                  <li class="wishlist-icon"><a title="My Wishlist"><span></span>My Wishlist</a></li>
-                  <li class="Compare-icon"><a href="Compare.html" title="Checkout"><span></span>Compare</a></li>
-                  <li class="login-icon"><a href="login.html" title="Login"><span></span>Login</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-middle">
-      <div class="container">
-        <div class="header-inner">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="navbar-header float-none-sm">
-                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"><i class="fa fa-bars"></i></button>
-                <a class="navbar-brand page-scroll" href="index.html">
-                  <img alt="Pioneer" src="images/logo.png">
-                </a> 
-              </div>
-            </div>
-            <div class="col-md-9">
-              <div class="header-right-part right-side float-none-sm">
-                <ul>
-                  <li class="mobile-view-search visible-sm visible-xs">
-                    <div class="header_search_toggle mobile-view">
-                      <form>
-                        <div class="search-box">
-                          <input type="text" placeholder="Search entire store here..." class="input-text">
-                          <button class="search-btn"></button>
-                        </div>
-                      </form>
-                    </div>
-                  </li>
-                  <li class="shipping-icon visible-lg visible-md">
-                    <a href="#">
-                      <span>  
-                      </span>
-                      <div class="header-right-text">Free Shipping Worldwide</div>
-                      <div class="header-price">All orders over £200</div>
-                    </a>
-                  </li>
-                  <li class="cart-icon">
-                    <a href="#">
-                      <span>
-                        <small class="cart-notification">2</small>
-                      </span>
-                      <div class="header-right-text">Shopping Cart</div>
-                      <div class="header-price">$ 354.32</div>
-                    </a>
-                    <div class="cart-dropdown header-link-dropdown">
-                      <ul class="cart-list link-dropdown-list">
-                        <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-                          <div class="media"> <a class="pull-left"> <img alt="Pioneer" src="images/1.jpg"></a>
-                            <div class="media-body">
-                              <span><a>Black African Print Skirt</a></span>
-                              <p class="cart-price">$14.99</p>
-                              <div class="product-qty">
-                                <div class="custom-qty">
-                                  <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-                          <div class="media"> <a class="pull-left"> <img alt="Pioneer" src="images/2.jpg"></a>
-                            <div class="media-body">
-                              <span><a>Black African Print Skirt</a></span>
-                              <p class="cart-price">$14.99</p>
-                              <div class="product-qty">
-                                <div class="custom-qty">
-                                  <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <p class="cart-sub-totle">
-                        <span class="pull-left">Cart Subtotal</span>
-                        <span class="pull-right"><strong class="price-box">$29.98</strong></span>
-                      </p>
-                      <div class="clearfix"></div>
-                      <div class="mt-20"> 
-                        <a href="cart.html" class="btn-color btn">Cart</a>
-                        <a href="checkout.html" class="btn-color btn right-side">Checkout</a> 
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-bottom">
-      <div class="container">
-        <div id="menu" class="navbar-collapse collapse left-side" >
-          <div class="top-search-bar visible-lg visible-md">
-            <div class="search-box"> <a href="#" class="search-btn"><span></span></a>
-              <input type="text" name="serch" value="" class="input-text" placeholder="Search...">
-              <div class="close-btn search-opener"><span></span></div>
-            </div>
-          </div>
-          <ul class="nav navbar-nav navbar-left">
-            <li class="level"><a href="shop.html" class="page-scroll">Today's Deals</a></li>
-            <li class="level">
-              <span class="opener plus"></span>
-              <a href="shop.html" class="page-scroll">Women</a>
-              <div class="megamenu mobile-sub-menu">
-                <div class="megamenu-inner-top">
-                  <ul class="sub-menu-level1">
-                    <li class="level2">
-                      <a href="shop.html"><span>Women Clothings</span></a>
-                      <ul class="sub-menu-level2">
-                        <li class="level3"><a href="shop.html">Dresses</a></li>
-                        <li class="level3"><a href="shop.html">Sport Jeans</a></li>
-                        <li class="level3"><a href="shop.html">Skirts</a></li>
-                        <li class="level3"><a href="shop.html">Tops</a></li>
-                        <li class="level3"><a href="shop.html">Sleepwear</a></li>
-                        <li class="level3"><a href="shop.html">Jeans</a></li>
-                      </ul>
-                    </li>
-                    <li class="level2">
-                      <a href="shop.html"><span>Women Fashion</span></a>
-                      <ul class="sub-menu-level2 ">
-                        <li class="level3"><a href="shop.html">Blazer & Coat</a></li>
-                        <li class="level3"><a href="shop.html">Sport Shoes</a></li>
-                        <li class="level3"><a href="shop.html">Phone Cases</a></li>
-                        <li class="level3"><a href="shop.html">Trousers</a></li>
-                        <li class="level3"><a href="shop.html">Purse</a></li>
-                        <li class="level3"><a href="shop.html">Wallets</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="megamenu-inner-bottom mt-20 visible-lg visible-md">
-                  <a href="shop.html">
-                    <img src="images/drop_banner2.jpg" alt="Pioneer">
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="level">
-              <span class="opener plus"></span>
-              <a href="shop.html" class="page-scroll">Men</a>
-              <div class="megamenu full mobile-sub-menu">
-                <div class="megamenu-inner">
-                  <div class="megamenu-inner-top">
-                    <div class="row">
-                      <div class="col-md-3 level2">
-                        <a href="shop.html"><span>Men Fashion</span></a>
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="shop.html">Blazer & Coat</a></li>
-                          <li class="level3"><a href="shop.html">Sport Shoes</a></li>
-                          <li class="level3"><a href="shop.html">Phone Cases</a></li>
-                          <li class="level3"><a href="shop.html">Trousers</a></li>
-                          <li class="level3"><a href="shop.html">Purse</a></li>
-                          <li class="level3"><a href="shop.html">Wallets</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-3 level2">
-                        <a href="shop.html"><span>Juniors kid</span></a>
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="shop.html">Blazer & Coat</a></li>
-                          <li class="level3"><a href="shop.html">Sport Shoes</a></li>
-                          <li class="level3"><a href="shop.html">Phone Cases</a></li>
-                          <li class="level3"><a href="shop.html">Trousers</a></li>
-                          <li class="level3"><a href="shop.html">Purse</a></li>
-                          <li class="level3"><a href="shop.html">Wallets</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-3 level2">
-                        <a href="shop.html"><span>Men Clothings</span></a>
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="shop.html">Blazer & Coat</a></li>
-                          <li class="level3"><a href="shop.html">Chinos & Trousers</a></li>
-                          <li class="level3"><a href="shop.html">Underwear</a></li>
-                          <li class="level3"><a href="shop.html">Trousers</a></li>
-                          <li class="level3"><a href="shop.html">Purse</a></li>
-                          <li class="level3"><a href="shop.html">Wallets</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-3 level2 visible-lg visible-md">
-                        <a href="shop.html">
-                          <img src="images/drop_banner.jpg" alt="Pioneer">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="level"><a href="shop.html" class="page-scroll">Juniors</a></li>
-            <li class="level">
-              <span class="opener plus"></span>
-              <a href="shop.html" class="page-scroll">Kids</a>
-              <div class="megamenu mobile-sub-menu">
-                <div class="megamenu-inner-top">
-                  <ul class="sub-menu-level1">
-                    <li class="level2">
-                      <a href="shop.html"><span>Kids Fashion</span></a>
-                      <ul class="sub-menu-level2 ">
-                        <li class="level3"><a href="shop.html">Blazer & Coat</a></li>
-                        <li class="level3"><a href="shop.html">Sport Shoes</a></li>
-                        <li class="level3"><a href="shop.html">Phone Cases</a></li>
-                        <li class="level3"><a href="shop.html">Trousers</a></li>
-                        <li class="level3"><a href="shop.html">Purse</a></li>
-                        <li class="level3"><a href="shop.html">Wallets</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="level"><a href="shop.html" class="page-scroll">Baby</a></li>
-            <li class="level"><a href="shop.html" class="page-scroll">Cloths</a></li>
-            <li class="level">
-              <span class="opener plus"></span>
-              <a class="page-scroll">Pages</a>
-              <div class="megamenu mobile-sub-menu">
-                <div class="megamenu-inner-top">
-                  <ul class="sub-menu-level1">
-                    <li class="level2">
-                      <ul class="sub-menu-level2 ">
-                        <li class="level3"><a href="about.html">About Us</a></li>
-                        <li class="level3"><a href="account.html">Account</a></li>
-                        <li class="level3"><a href="checkout.html">Checkout</a></li>
-                        <li class="level3"><a href="contact.html">Contact</a></li>
-                        <li class="level3"><a href="404.html">404 Error</a></li>
-                        <li class="level3"><a href="blog.html">Blog</a></li>
-                        <li class="level3"><a href="single-blog.html">Single Blog</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <div class="search-btn-icon search-opener visible-lg visible-md">
-            <button class="search-btn"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  	<c:import url="/layout/header"/>
   <!-- HEADER END --> 
 
   <!-- BANNER STRAT -->
@@ -352,7 +56,6 @@
                 <div class="banner-detail-inner">
                   <span class="slogan">Super Sale 2017 </span>
                   <h1 class="banner-title"><span>Farm Fresh</span> <br> vegetables</h1>
-                  <a href="shop.html" class="btn btn-color">Shop Now</a>
                 </div>
               </div>
               <div class="col-sm-5 col-xs-4"></div>
@@ -370,7 +73,6 @@
                 <div class="banner-detail-inner">
                   <span class="slogan">Real taste at home</span>
                   <h1 class="banner-title"><span>Extra hot</span> <br> Malsika chillis</h1>
-                  <a href="shop.html" class="btn btn-green">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -386,7 +88,6 @@
                 <div class="banner-detail-inner">
                   <span class="slogan">Organic and healthy food</span>
                   <h1 class="banner-title"><span>Buy daily vedetables</span> <br> At best price in pioneer</h1>
-                  <a href="shop.html" class="btn btn-color">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -477,15 +178,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon active"><a href="#"></a></li>
@@ -516,15 +208,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -555,15 +238,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -594,15 +268,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -634,15 +299,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon active"><a href="#"></a></li>
@@ -673,15 +329,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -714,15 +361,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -753,15 +391,6 @@
                   </div>
                 </div>
                 <div class="product-detail-inner">
-                  <div class="detail-inner-left left-side">
-                    <ul>
-                      <li class="pro-cart-icon">
-                        <form>
-                          <button title="Add to Cart"><span></span>Add to Cart</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
                   <div class="detail-inner-left right-side">
                     <ul>
                       <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -777,20 +406,6 @@
     </div>
   </section>
   <!--  Featured Products Slider Block End  -->
-
-  <!-- perellex-banner Start -->
-  <section>
-    <div class="perellex-banner">
-      <div class="container">
-        <div class="perellex-delail ptb-95 align-center">
-          <div class="perellex-subtitle mtb-20s">Wholesale Fruits & vegetables </div>
-          <div class="perellex-title">Delivering Fresh Organic Fruit and Vegetables to your Door</div>
-          <a class="btn btn-color">Shop now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- perellex-banner Start -->
 
   <section class="bg">
     <div class="container">
@@ -872,11 +487,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -892,11 +502,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -922,11 +527,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -942,11 +542,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -972,11 +567,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -992,11 +582,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1022,11 +607,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -1042,11 +622,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1087,11 +662,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -1107,11 +677,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1137,11 +702,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -1157,11 +717,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1187,11 +742,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -1207,11 +757,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1237,11 +782,6 @@
                               <div class="price-box">
                                 <span class="price">$80.00</span>
                               </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
-                              </div>
                             </div>
                           </li>
                           <li>
@@ -1257,11 +797,6 @@
                               <a>Jersey Top with Design</a>
                               <div class="price-box">
                                 <span class="price">$80.00</span>
-                              </div>
-                              <div class="cart-link">
-                                <form>
-                                  <button title="Add to Cart"><span></span>Add To Cart</button>
-                                </form>
                               </div>
                             </div>
                           </li>
@@ -1437,180 +972,11 @@
     </div>
   </section>
 
-  <!-- Brand logo block Start  -->
-  <section class="ptb-95">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="brand">
-            <div id="brand-logo" class="owl-carousel align_center">
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand1.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand2.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand3.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand4.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand5.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand6.png" alt="#"></a></div>
-              <div class="item "><a href="#"><img src="${pageContext.request.contextPath}/static/images/brand7.png" alt="#"></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Brand logo block End  --> 
 
   <!-- CONTAINER END --> 
   
   <!-- FOOTER START -->
-  <div class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div class="row">
-            <div class="col-md-4 f-col">
-              <div class="footer-static-block">
-                <span class="opener plus"></span>
-                <div class="f-logo">
-                  <a href="index.html" class="">
-                    <img src="${pageContext.request.contextPath}/static/images/footer-logo.png" alt="Pioneer">
-                  </a>
-                </div>
-                <ul class="footer-block-contant address-footer">
-                  <li class="item">
-                    <i class="fa fa-text">O .</i>
-                    <p>150-A Appolo aprtment, opp. Hopewell Junction, Allen st Road, Los Angeles-90017. California</p>
-                  </li>
-                  <li class="item">
-                    <i class="fa fa-text">E .</i>
-                    <p>
-                      <a>infoservices@webcotheme.com</a>
-                    </p>
-                  </li>
-                  <li class="item">
-                    <i class="fa fa-text">P .</i>
-                    <p>029-222-3255-222</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="row">
-                <div class="col-md-4 f-col">
-                  <div class="footer-static-block">
-                    <span class="opener plus"></span>
-                    <h3 class="title"><span></span>Why Buy</h3>
-                    <ul class="footer-block-contant link">
-                      <li><a>About Us</a></li>
-                      <li><a>Jobs</a></li>
-                      <li><a>Affiliates</a></li>
-                      <li><a>Contact</a></li>
-                      <li><a>About Us</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4 f-col">
-                  <div class="footer-static-block">
-                    <span class="opener plus"></span>
-                    <h3 class="title"><span></span>Quick Link</h3>
-                    <ul class="footer-block-contant link">
-                      <li><a>About Us</a></li>
-                      <li><a>Jobs</a></li>
-                      <li><a>Affiliates</a></li>
-                      <li><a>Contact</a></li>
-                      <li><a>About Us</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4 f-col">
-                  <div class="footer-static-block">
-                    <span class="opener plus"></span>
-                    <h3 class="title"><span></span>About Pioneer Products</h3>
-                    <div class="footer-block-contant">
-                  <p>Type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It type specimen book.”</p>
-                </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="footer-middle center-sm" >
-          <div class="row">
-            <div class="col-md-7">
-              <div class="site-link mt-30 ">
-                <ul>
-                  <li><a>Football Store</a>/</li>
-                  <li><a>Handbags</a>/</li>
-                  <li><a>Joggers Men</a>/</li>
-                  <li><a>Knitwear for Women</a>/</li>
-                  <li><a>Lingereie</a>/</li>
-                  <li><a>Mens Casual Shors</a>/</li>
-                  <li><a>Mens Coats</a>/</li>
-                  <li><a>Mens Footwear</a>/</li>
-                  <li><a>Mens Hoodies</a>/</li>
-                  <li><a>Mens Jeans</a>/</li>
-                  <li><a>Mens Jumpers & Cardigans</a>/</li>
-                  <li><a>Mens Nightwear</a>/</li>
-                  <li><a>Mens Socks</a>/</li>
-                  <li><a>Mens T-Shirt</a>/</li>
-                  <li><a>Mens Trainers</a>/</li>
-                  <li><a>Mens Trousers</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-5 border-l">
-              <div class="newsletter mtb-30">
-                <div class="newsletter-inner">
-                  <div class="newsletter-title">
-                    <h3 class="title"><span></span>Subscribe Emails</h3>
-                  </div>
-                  <form>
-                    <div class="newsletter-box">
-                      <input type="email" placeholder="Email Here...">
-                      <button title="Subscribe" class="btn-color">Subscribe</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="footer-bottom mtb-30">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="footer_social pt-xs-15 center-xs mt-xs-15">
-                <ul class="social-icon">
-                  <li><a title="Facebook" class="facebook"><i class="fa fa-facebook"> </i></a></li>
-                  <li><a title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
-                  <li><a title="Linkedin" class="linkedin"><i class="fa fa-linkedin"> </i></a></li>
-                  <li><a title="RSS" class="rss"><i class="fa fa-rss"> </i></a></li>
-                  <li><a title="Pinterest" class="pinterest"><i class="fa fa-pinterest"> </i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="copy-right center-xs">© 2017  All Rights Reserved. Design By <a href="#">Webcotheme</a></div>
-            </div>
-            <div class="col-sm-4">
-              <div class="payment right-side float-none-xs center-xs">
-                <ul class="payment_icon">
-                  <li class="discover"><a></a></li>
-                  <li class="visa"><a></a></li>
-                  <li class="mastro"><a></a></li>
-                  <li class="paypal"><a></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-top">
-    <div id="scrollup"></div>
-  </div>
+  	<c:import url="/layout/footer"/>
   <!-- FOOTER END --> 
 </div>
 <script src="${pageContext.request.contextPath}/static/js/jquery-1.12.3.min.js"></script>
@@ -1620,15 +986,6 @@
 <script src="${pageContext.request.contextPath}/static/js/jquery.magnific-popup.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/custom.js"></script>
-
-<script>
-  /* ------------ Newslater-popup JS Start ------------- */
-  $(window).load(function() {
-    $.magnificPopup.open({
-      items: {src: '#newslater-popup'},type: 'inline'}, 0);
-  });
-    /* ------------ Newslater-popup JS End ------------- */
-</script>
 
 </body>
 </html>

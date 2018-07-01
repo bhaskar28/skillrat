@@ -12,7 +12,6 @@ public class HomePageController
 	@RequestMapping(method= RequestMethod.GET)
 	public String homePage(Model model)
 	{
-		
 		return "layout/homepage";
 	}
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Default security config -->
+	<security:http auto-config="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<security:anonymous username="anonymous" granted-authority="ROLE_ANONYMOUS" />
+		<security:access-denied-handler error-page="/login"/>
+		<security:csrf disabled="true"/>
+		
+		<security:form-login
+				login-page="/login"
+				authentication-failure-handler-ref="loginAuthenticationFailureHandler"
+				authentication-success-handler-ref="loginAuthenticationSuccessHandler"
+				username-parameter="j_username" 
+				password-parameter="j_password" 
+				login-processing-url="/j_spring_security_check"
+				  />
+		<security:logout logout-url="/logout" success-handler-ref="logoutSuccessHandler" />
+		<security:headers>
+			<security:frame-options disabled="true"/>
+		</security:headers>
+	</security:http>
+	
+	<bean id="loginAuthenticationFailureHandler" class="com.training.storefront.security.TrainingAuthenticationFailureHandler">
+	</bean>
+	<bean id="loginAuthenticationSuccessHandler" class="com.training.storefront.security.LoginAuthenticationSuccessHandler">
+	</bean>
+	<bean id="logoutSuccessHandler" class="com.training.storefront.security.LogoutSuccessHandler">
+		<constructor-arg value="/home" />
+	</bean>
+</beans>

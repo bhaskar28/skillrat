@@ -43,7 +43,7 @@ public class DefaultCustomerService implements CustomerService
 		customerData.setFirstName(customerModel.getFirstName());
 		customerData.setLastName(customerModel.getLastName());
 		emailData.setCustomerData(customerData);
-		emailSenderService.sendEmail(emailData);
+		//emailSenderService.sendEmail(emailData);
 	}
 
 

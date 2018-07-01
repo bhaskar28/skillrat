@@ -43,6 +43,9 @@ public class CourseModel
 	@JoinColumn(name = "TRAINER")
 	private CustomerModel trainer;
 	
+	@Column(name="FUTURED")
+	private boolean futured;
+	
 	public Long getId() {
 		return id;
 	}
@@ -91,5 +94,10 @@ public class CourseModel
 	public void setTrainer(CustomerModel trainer) {
 		this.trainer = trainer;
 	}
-	
+	public boolean isFutured() {
+		return futured;
+	}
+	public void setFutured(boolean futured) {
+		this.futured = futured;
+	}
 }

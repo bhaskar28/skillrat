@@ -10,7 +10,8 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
             /WEB-INF/trainingstorefront-servlet.xml,
-            /WEB-INF/trainingstorefront-security.xml
+            /WEB-INF/trainingstorefront-security.xml,
+            /WEB-INF/trainingstorefront-web-security.xml
         </param-value>
         </init-param>
       <load-on-startup>1</load-on-startup>
@@ -23,7 +24,8 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/trainingstorefront-servlet.xml,
-            /WEB-INF/trainingstorefront-security.xml
+            /WEB-INF/trainingstorefront-security.xml,
+            /WEB-INF/trainingstorefront-web-security.xml
         </param-value>
     </context-param>
    <servlet-mapping>
