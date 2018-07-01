@@ -1,5 +1,7 @@
 package com.training.storefront.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LayoutController 
 {
 	@RequestMapping(value="/header")
-	public String getHeader(Model model)
+	public String getHeader(Model model, HttpServletRequest request)
 	{
+		boolean login=false;
+		String username=(String)request.getSession().getAttribute("user");
+		if(null !=username)
+		{
+			login= true;
+		}
+		model.addAttribute("login", login);
 		return "common/header";
 	}
 	

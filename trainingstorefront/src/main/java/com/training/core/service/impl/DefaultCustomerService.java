@@ -58,6 +58,7 @@ public class DefaultCustomerService implements CustomerService
 
 	@Override
 	@Transactional
+	@Cacheable(value="customersCache", key="#username")
 	public CustomerModel getCustomerByUserName(String username) 
 	{
 		return customerDao.getCustomerByUserName(username);
@@ -66,6 +67,7 @@ public class DefaultCustomerService implements CustomerService
 
 	@Override
 	@Transactional
+	@Cacheable(value="customersCache", key="#username")
 	public ClientDetails getByClientId(String clientId) 
 	{
 		return customerDao.getByClientId(clientId);

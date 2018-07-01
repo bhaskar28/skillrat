@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <header class="navbar navbar-custom" id="header">
     <div class="header-top">
       <div class="container">
@@ -10,9 +11,17 @@
             <div class="col-sm-7">
               <div class="top-link right-side">
                 <ul>
-                  <li class="account-icon"><a href="accountnavbar-brand page-scroll.html" title="My Account"><span></span> My Account</a></li>
-                  <li class="wishlist-icon"><a title="My Wishlist"><span></span>My Skills</a></li>
-                  <li class="login-icon"><a href="/trainingstorefront/login" title="Login"><span></span>Login/Register</a></li>
+                
+                  <c:choose>
+                  	<c:when test="${login}">
+                  		<li class="account-icon"><a href="accountnavbar-brand page-scroll.html" title="My Account"><span></span> My Account</a></li>
+                  		<li class="wishlist-icon"><a title="My Wishlist"><span></span>My Skills</a></li>
+                  		<li class="wishlist-icon"><a href="/trainingstorefront/logout" title="My Wishlist"><span></span>Logout</a></li>
+                  	</c:when>
+                  	<c:otherwise>
+                  		<li class="login-icon"><a href="/trainingstorefront/login" title="Login"><span></span>Login/Register</a></li>
+                  	</c:otherwise>
+                  </c:choose>
                 </ul>
               </div>
             </div>
