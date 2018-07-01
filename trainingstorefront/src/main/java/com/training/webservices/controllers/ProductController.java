@@ -70,4 +70,8 @@ public class ProductController
 		return products;
 	}
 
+	public String getProductsForCategory()
+	{
+		return null;
+	}
 }

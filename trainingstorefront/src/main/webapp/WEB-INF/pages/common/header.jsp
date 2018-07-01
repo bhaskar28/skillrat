@@ -14,7 +14,7 @@
                 
                   <c:choose>
                   	<c:when test="${login}">
-                  		<li class="account-icon"><a href="accountnavbar-brand page-scroll.html" title="My Account"><span></span> My Account</a></li>
+                  		<li class="account-icon"><a href="/trainingstorefront/my-account" title="My Account"><span></span> My Account</a></li>
                   		<li class="wishlist-icon"><a title="My Wishlist"><span></span>My Skills</a></li>
                   		<li class="wishlist-icon"><a href="/trainingstorefront/logout" title="My Wishlist"><span></span>Logout</a></li>
                   	</c:when>

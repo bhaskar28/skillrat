@@ -49,6 +49,6 @@ public class DefualtProductService implements ProductService
 	@Override
 	public List<ProductModel> getProducts(ProductQueryData productQuery) 
 	{
-		return null;
+		return productDao.getProducts(productQuery);
 	}
 }

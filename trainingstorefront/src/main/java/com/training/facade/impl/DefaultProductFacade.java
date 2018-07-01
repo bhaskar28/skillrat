@@ -123,4 +123,12 @@ public class DefaultProductFacade implements ProductFacade
 		}
 		return productsList;
 	}
+
+	@Override
+	public List<ProductData> getProducts(ProductQueryData productQuery) 
+	{
+		List<ProductModel> products=productService.getProducts(productQuery);
+		List<ProductData> productsData= convert(products);
+		return productsData;
+	}
 }

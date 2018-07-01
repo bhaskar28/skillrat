@@ -24,7 +24,8 @@ public class DefaultCustomerFacade implements CustomerFacade
 		return customer;
 	}
 
-	private CustomerData convert(CustomerModel customerModel) {
+	private CustomerData convert(CustomerModel customerModel) 
+	{
 		CustomerData customer= new CustomerData();
 		customer.setFirstName(customerModel.getFirstName());
 		customer.setFirstName(customerModel.getLastName());
@@ -45,6 +46,14 @@ public class DefaultCustomerFacade implements CustomerFacade
 		customer.setCreationTime(TrainingDateUtil.getCreationTime());
 		customerService.saveCustomer(customer);
 		customerData = convert(customer);
+		return customerData;
+	}
+
+	@Override
+	public CustomerData getCustomerByUsername(String username) 
+	{
+		CustomerModel customer=customerService.getCustomerByUserName(username);
+		CustomerData customerData = convert(customer);
 		return customerData;
 	}
 	

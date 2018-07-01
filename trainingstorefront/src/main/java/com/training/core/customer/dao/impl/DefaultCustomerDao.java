@@ -39,7 +39,7 @@ public class DefaultCustomerDao implements CustomerDao
 	public CustomerModel getCustomerByUserName(String username) 
 	{
 		Query query=sessionFactory.getCurrentSession().createQuery("FROM "+com.training.core.model.CustomerModel.class.getName()+" "
-				+ " where mobile =:username");
+				+ " where email =:username");
 		query.setParameter("username", username);
 		
 		if(null == query || CollectionUtils.isEmpty(query.list()))

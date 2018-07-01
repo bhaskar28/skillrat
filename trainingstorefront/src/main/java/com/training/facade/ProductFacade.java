@@ -11,4 +11,5 @@ public interface ProductFacade
 	ProductData getProductById(Long productId);
 	List<ProductData> getProductsByCustomer(ProductQueryData productQuery);
 	List<ProductData> getProductsByCustomer(Long customerId);
+	List<ProductData> getProducts(ProductQueryData productQuery);
 }

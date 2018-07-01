@@ -71,9 +71,17 @@ public class DefaultProductDao implements ProductDao
 	@Override
 	public List<ProductModel> getProducts(ProductQueryData productQuery) 
 	{
-		Query query=sessionFactory.getCurrentSession().createQuery("From "+com.training.core.model.ProductModel.class.getName()+" "
-				+ "ORDER BY creationTime DESC");
+		StringBuilder sqlQuery=new StringBuilder("FROM "+com.training.core.model.ProductModel.class.getName());
 		
+		if(null !=productQuery.getFieldId())
+		{
+			sqlQuery.append(" WHERE field.id =:fieldId");
+		}
+		sqlQuery.append(" ORDER BY creationTime DESC");
+		
+		Query query=sessionFactory.getCurrentSession().createQuery(sqlQuery.toString());
+		query.setMaxResults(productQuery.getPageSize());
+		query.setFirstResult((productQuery.getPage()-1)*productQuery.getPageSize());
 		return query.list();
 	}
 
